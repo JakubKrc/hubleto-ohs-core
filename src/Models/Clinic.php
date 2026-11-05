@@ -1,17 +1,17 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models;
 
 use Hubleto\Framework\Db\Column\Email;
 use Hubleto\Framework\Db\Column\Text;
 use Hubleto\Framework\Db\Column\Varchar;
 
-class Clinic extends \Hubleto\App\External\WaiBlue\HlthcrCore\Models\HlthcrModel
+class Clinic extends \Hubleto\App\External\WaiBlue\OhsCore\Models\OhsModel
 {
-  public string $table = 'hlthcr_clinics';
+  public string $table = 'ohs_clinics';
   public string $recordManagerClass = RecordManagers\Clinic::class;
   public ?string $lookupSqlValue = 'concat({%TABLE%}.name, ifnull(concat(", ", {%TABLE%}.city), ""))';
-  public ?string $lookupUrlDetail = 'hlthcr-core/clinics/{%ID%}';
+  public ?string $lookupUrlDetail = 'ohs/core/clinics/{%ID%}';
 
   public function describeColumns(): array
   {

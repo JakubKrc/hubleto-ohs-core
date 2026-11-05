@@ -1,12 +1,12 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\HubletoOverrides;
+namespace Hubleto\App\External\WaiBlue\OhsCore\HubletoOverrides;
 
 use Hubleto\App\Community\Desktop\Controllers\Home as DesktopHome;
 
 /**
  * Hubleto's home page with a Slovak greeting, the user's dashboard and the user card, without Hubleto's
- * English tips, its onboarding box and its logo (registered in the HlthcrCore loader).
+ * English tips, its onboarding box and its logo (registered in the OhsCore loader).
  */
 class HomePage extends DesktopHome
 {
@@ -19,7 +19,7 @@ class HomePage extends DesktopHome
   {
     parent::__construct();
     // The class is not in a Controllers namespace, so Hubleto does not set the context itself.
-    $this->translationContext = 'hubleto-app-external-waiblue-hlthcrcore-loader';
+    $this->translationContext = 'hubleto-app-external-waiblue-ohscore-loader';
     $this->translationContextInner = 'Controllers\\HomePage';
   }
 
@@ -27,7 +27,7 @@ class HomePage extends DesktopHome
   {
     parent::prepareView();
     $this->viewParams['greeting'] = $this->getGreeting();
-    $this->setView('@Hubleto:App:External:WaiBlue:HlthcrCore/HomePage.twig');
+    $this->setView('@Hubleto:App:External:WaiBlue:OhsCore/HomePage.twig');
   }
 
   private function getGreeting(): string

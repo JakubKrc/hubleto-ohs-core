@@ -1,14 +1,14 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore;
+namespace Hubleto\App\External\WaiBlue\OhsCore;
 
 /**
- * Base of the Hlthcr app loaders.
+ * Base of the Ohs app loaders.
  */
-abstract class HlthcrApp extends \Hubleto\Erp\App
+abstract class OhsApp extends \Hubleto\Erp\App
 {
   /**
-   * Each Hlthcr app registers the Hlthcr translator as soon as it is created: apps start in alphabetical order,
+   * Each Ohs app registers the Ohs translator as soon as it is created: apps start in alphabetical order,
    * and "php hubleto init" installs an app before its init() runs.
    */
   public function __construct()
@@ -35,16 +35,16 @@ abstract class HlthcrApp extends \Hubleto\Erp\App
   }
 
   /**
-   * Hubleto calls generateDemoData() of the apps in alphabetical order, but the Hlthcr demo data needs
-   * the order of the app dependencies, so the first call generates the demo data of all Hlthcr apps.
+   * Hubleto calls generateDemoData() of the apps in alphabetical order, but the Ohs demo data needs
+   * the order of the app dependencies, so the first call generates the demo data of all Ohs apps.
    */
   public function generateDemoData(): void
   {
-    $this->getService(Services\DemoData::class)->generateForAllHlthcrApps();
+    $this->getService(Services\DemoData::class)->generateForAllOhsApps();
   }
 
-  // FAKE demo data of this app only; DemoData::generateForAllHlthcrApps() calls it in the right order.
-  public function generateHlthcrDemoData(): void
+  // FAKE demo data of this app only; DemoData::generateForAllOhsApps() calls it in the right order.
+  public function generateOhsDemoData(): void
   {
   }
 }

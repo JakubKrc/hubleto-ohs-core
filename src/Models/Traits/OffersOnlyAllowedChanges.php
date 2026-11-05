@@ -1,9 +1,9 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\Traits;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\Traits;
 
-use Hubleto\App\External\WaiBlue\HlthcrCore\Services\RecordWriteGuard;
-use Hubleto\App\External\WaiBlue\HlthcrCore\Services\Roles;
+use Hubleto\App\External\WaiBlue\OhsCore\Services\RecordWriteGuard;
+use Hubleto\App\External\WaiBlue\OhsCore\Services\Roles;
 
 /**
  * For models whose forms and lists should offer adding, editing and deleting only when the user may change

@@ -1,7 +1,7 @@
 {
     "manifest": {
         "Code lists": "Číselníky",
-        "Shared code lists for occupational health (hazards, clinics, cars) and shared services of the Hlthcr apps.": "Spoločné číselníky pracovnej zdravotnej služby (riziká, ambulancie, autá) a spoločné služby aplikácií Hlthcr.",
+        "Shared code lists for occupational health (hazards, clinics, cars) and shared services of the Ohs apps.": "Spoločné číselníky pracovnej zdravotnej služby (riziká, ambulancie, autá) a spoločné služby aplikácií Ohs.",
         "Hazards (categorisation items)": "Riziká (položky kategorizácie)",
         "Hazards": "Riziká",
         "Clinics": "Ambulancie",
@@ -87,7 +87,7 @@
         "Hazards and exam intervals": "Riziká a intervaly LPP",
         "Clinics and their medical staff": "Ambulancie a ich zdravotný personál",
         "Cars": "Autá",
-        "The code lists shared by all Hlthcr apps. Exam intervals of the hazards set the next exam date.": "Číselníky spoločné pre všetky aplikácie Hlthcr. Intervaly LPP pri rizikách určujú dátum ďalšej prehliadky."
+        "The code lists shared by all Ohs apps. Exam intervals of the hazards set the next exam date.": "Číselníky spoločné pre všetky aplikácie Ohs. Intervaly LPP pri rizikách určujú dátum ďalšej prehliadky."
     },
     "Controllers\\Api\\Refused": {
         "You do not have permission to make this change.": "Na túto zmenu nemáte oprávnenie."

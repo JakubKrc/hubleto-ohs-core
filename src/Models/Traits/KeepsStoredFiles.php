@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\Traits;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\Traits;
 
 /**
  * For models with StoredFile columns: a saved path can only stay as it is, a new file must be uploaded.

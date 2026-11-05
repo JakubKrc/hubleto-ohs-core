@@ -7,7 +7,7 @@ interface TableClinicHasMedicalStaffProps extends TableProps {
 }
 
 const componentName = 'TableClinicHasMedicalStaff'
-const parentApp = 'Hubleto/App/External/WaiBlue/HlthcrCore'
+const parentApp = 'Hubleto/App/External/WaiBlue/OhsCore'
 
 const TableClinicHasMedicalStaff = (props: TableClinicHasMedicalStaffProps) => {
   const idClinic = props.idClinic ?? 0;
@@ -15,7 +15,7 @@ const TableClinicHasMedicalStaff = (props: TableClinicHasMedicalStaffProps) => {
     componentName={componentName}
     parentApp={parentApp}
     model={parentApp + '/Models/ClinicHasMedicalStaff'}
-    baseUrlSlug='hlthcr-core/clinic-has-medical-staff'
+    baseUrlSlug='ohs/core/clinic-has-medical-staff'
     endpointParams={{idClinic: idClinic}}
     formDefaultValues={idClinic > 0 ? {id_clinic: idClinic} : {}}
     formModalProps={{type: 'right'}}

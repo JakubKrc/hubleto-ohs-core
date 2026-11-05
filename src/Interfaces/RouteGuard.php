@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Interfaces;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Interfaces;
 
 /**
  * A check that runs before every request (see HubletoOverrides/GuardedRenderer).

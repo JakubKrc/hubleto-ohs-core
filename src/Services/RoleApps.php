@@ -1,13 +1,13 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
 use Hubleto\App\Community\Auth\Models\User;
 use Hubleto\App\Community\Auth\Models\UserHasRole;
 
 /**
  * Which apps (pages) each role may open. Records inside the apps are limited by the scope rules.
- * Medical staff see only clients, branches, employees and exams in both legacy apps; the other roles differ, so they get every Hlthcr app.
+ * Medical staff see only clients, branches, employees and exams in both legacy apps; the other roles differ, so they get every Ohs app.
  */
 class RoleApps extends \Hubleto\Erp\Core
 {
@@ -16,24 +16,24 @@ class RoleApps extends \Hubleto\Erp\Core
     'Hubleto\\App\\Community\\Dashboards',
     'Hubleto\\App\\Community\\Notifications',
     'Hubleto\\App\\Community\\Customers',
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrBranches',
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrEmployees',
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrMedicalExams',
+    'Hubleto\\App\\External\\WaiBlue\\OhsBranches',
+    'Hubleto\\App\\External\\WaiBlue\\OhsEmployees',
+    'Hubleto\\App\\External\\WaiBlue\\OhsMedicalExams',
   ];
 
-  // Manager, hygienist and nurse: every internal Hlthcr app, the calendar and workflows.
-  // Hubleto's Documents app is not given: work documents are its documents, shown and changed through HlthcrDocuments,
+  // Manager, hygienist and nurse: every internal Ohs app, the calendar and workflows.
+  // Hubleto's Documents app is not given: work documents are its documents, shown and changed through OhsDocuments,
   // and its templates are managed by administrators.
   // Contact persons too: both legacy apps hide them from medical staff.
   const APPS_FOR_INTERNAL_ROLES = [
     'Hubleto\\App\\Community\\Contacts',
     'Hubleto\\App\\Community\\Calendar',
     'Hubleto\\App\\Community\\Workflow',
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrCore',
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrClients',
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrAudits',
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrDocuments',
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrEvents',
+    'Hubleto\\App\\External\\WaiBlue\\OhsCore',
+    'Hubleto\\App\\External\\WaiBlue\\OhsClients',
+    'Hubleto\\App\\External\\WaiBlue\\OhsAudits',
+    'Hubleto\\App\\External\\WaiBlue\\OhsDocuments',
+    'Hubleto\\App\\External\\WaiBlue\\OhsEvents',
   ];
 
   const APPS_FOR_MEDICAL_STAFF = [];
@@ -45,7 +45,7 @@ class RoleApps extends \Hubleto\Erp\Core
   }
 
   /**
-   * Apps of all Hlthcr roles the user has. Empty when the user has no Hlthcr role.
+   * Apps of all Ohs roles the user has. Empty when the user has no Ohs role.
    */
   public function getAppsForUser(int $idUser): array
   {
@@ -54,14 +54,14 @@ class RoleApps extends \Hubleto\Erp\Core
     $userRoleIds = $this->getModel(UserHasRole::class)->record->where('id_user', $idUser)->pluck('id_role')->toArray();
 
     $apps = [];
-    $hasHlthcrRole = false;
+    $hasOhsRole = false;
     foreach (array_keys($roles->getRoleDefinitions()) as $roleKey) {
       if (!in_array($roles->getRoleId($roleKey), $userRoleIds)) continue;
-      $hasHlthcrRole = true;
+      $hasOhsRole = true;
       $apps = array_merge($apps, $this->getAppsForRole($roleKey));
     }
 
-    if (!$hasHlthcrRole) return [];
+    if (!$hasOhsRole) return [];
     return array_values(array_unique(array_merge(self::APPS_FOR_EVERY_ROLE, $apps)));
   }
 

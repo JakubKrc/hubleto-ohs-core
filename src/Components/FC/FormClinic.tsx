@@ -6,7 +6,7 @@ import Input from '@hubleto/react-ui/components/fc/FormComponents/Input';
 import TableClinicHasMedicalStaff from './TableClinicHasMedicalStaff';
 
 const componentName = 'FormClinic';
-const parentApp = 'Hubleto/App/External/WaiBlue/HlthcrCore';
+const parentApp = 'Hubleto/App/External/WaiBlue/OhsCore';
 const T = new Translator(parentApp + '/Loader', 'Components/' + componentName);
 
 // Medical staff users of this clinic: they see and plan only its exams.
@@ -20,7 +20,7 @@ const FormClinic = (props: FormProps) => <Form
   componentName={componentName}
   parentApp={parentApp}
   model={parentApp + '/Models/Clinic'}
-  urlSlug='hlthcr-core/clinics'
+  urlSlug='ohs/core/clinics'
   title={{field: 'name', sub: T.translate('Clinic')}}
   tabs={{
     default: {title: <b>{T.translate('Clinic')}</b>, content: () => <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>

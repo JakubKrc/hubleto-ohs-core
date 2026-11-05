@@ -3,13 +3,13 @@ import { type TableMeta, type TableProps } from '@hubleto/react-ui/components/fc
 import FormCar from './FormCar'
 
 const componentName = 'TableCars'
-const parentApp = 'Hubleto/App/External/WaiBlue/HlthcrCore'
+const parentApp = 'Hubleto/App/External/WaiBlue/OhsCore'
 
 const TableCars = (props: TableProps) => <Table
   componentName={componentName}
   parentApp={parentApp}
   model={parentApp + '/Models/Car'}
-  baseUrlSlug='hlthcr-core/cars'
+  baseUrlSlug='ohs/core/cars'
   formModalProps={{type: 'right wide'}}
   renderForm={(table: TableMeta) => <FormCar {...table.getDefaultFormProps()} />}
   {...props}

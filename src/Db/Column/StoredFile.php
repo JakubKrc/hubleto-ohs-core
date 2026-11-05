@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Db\Column;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Db\Column;
 
 /**
  * File column that renames only new uploads.
@@ -12,7 +12,7 @@ class StoredFile extends \Hubleto\Framework\Db\Column\File
   // The form links the file name to this checked download route ({%ID%} = record id) instead of the upload folder.
   public function setDownloadUrl(string $downloadUrl): StoredFile
   {
-    $this->setReactComponent('HlthcrCoreProtectedFileInput');
+    $this->setReactComponent('OhsCoreProtectedFileInput');
     $this->setProperty('downloadUrl', $downloadUrl);
     return $this;
   }

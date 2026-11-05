@@ -1,13 +1,13 @@
-namespace: Hubleto\App\External\WaiBlue\HlthcrCore
+namespace: Hubleto\App\External\WaiBlue\OhsCore
 appType: external
 sidebarGroup: custom
-rootUrlSlug: hlthcr-core
+rootUrlSlug: ohs/core
 name: Code lists
 icon: fas fa-list-check
 author:
-  name: "Hlthcr"
-  nick: "hlthcr"
-highlight: Shared code lists for occupational health (hazards, clinics, cars) and shared services of the Hlthcr apps.
+  name: "Ohs"
+  nick: "ohs"
+highlight: Shared code lists for occupational health (hazards, clinics, cars) and shared services of the Ohs apps.
 requires:
   - Hubleto\App\Community\Auth
   - Hubleto\App\Community\Settings

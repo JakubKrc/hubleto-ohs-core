@@ -1,9 +1,9 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
 /**
- * Loads the records of a dropdown for the Hlthcr lookup endpoints (models and lookups review C3).
+ * Loads the records of a dropdown for the Ohs lookup endpoints (models and lookups review C3).
  */
 class DropdownRecords extends \Hubleto\Erp\Core
 {

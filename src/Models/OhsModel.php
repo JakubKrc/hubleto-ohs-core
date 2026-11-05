@@ -1,14 +1,14 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models;
 
-use Hubleto\App\External\WaiBlue\HlthcrCore\Models\Traits\OffersOnlyAllowedChanges;
+use Hubleto\App\External\WaiBlue\OhsCore\Models\Traits\OffersOnlyAllowedChanges;
 
 /**
- * Base of the Hlthcr models. Forms and lists offer adding, editing and deleting only when the user may change
+ * Base of the Ohs models. Forms and lists offer adding, editing and deleting only when the user may change
  * the model, e.g. medical staff see clients and branches read-only.
  */
-abstract class HlthcrModel extends \Hubleto\Erp\Model
+abstract class OhsModel extends \Hubleto\Erp\Model
 {
   use OffersOnlyAllowedChanges;
 

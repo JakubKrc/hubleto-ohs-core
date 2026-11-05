@@ -1,12 +1,12 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\HubletoOverrides;
+namespace Hubleto\App\External\WaiBlue\OhsCore\HubletoOverrides;
 
-use Hubleto\App\External\WaiBlue\HlthcrCore\Services\DropdownRecords;
+use Hubleto\App\External\WaiBlue\OhsCore\Services\DropdownRecords;
 
 /**
  * Hubleto's record lookup without its 5-minute cache. That cache is shared by all users,
- * but Hlthcr lookups offer each user only the records the user may see.
+ * but Ohs lookups offer each user only the records the user may see.
  */
 class RecordLookup extends \Hubleto\Framework\Controllers\Api\Record\Lookup
 {

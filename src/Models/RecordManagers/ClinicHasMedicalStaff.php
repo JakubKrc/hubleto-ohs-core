@@ -1,13 +1,13 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\RecordManagers;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\RecordManagers;
 
 use Hubleto\App\Community\Auth\Models\RecordManagers\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ClinicHasMedicalStaff extends \Hubleto\Erp\RecordManager
 {
-  public $table = 'hlthcr_clinic_has_medical_staff';
+  public $table = 'ohs_clinic_has_medical_staff';
 
   public function CLINIC(): BelongsTo
   {

@@ -1,43 +1,43 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
 use Hubleto\App\Community\Auth\Models\User;
 use Hubleto\App\Community\Auth\Models\UserHasRole;
 
 /**
- * Shared FAKE demo data (users per role, client companies) for all Hlthcr apps.
+ * Shared FAKE demo data (users per role, client companies) for all Ohs apps.
  * Never put real client data here; the repo and test servers use only this.
  */
 class DemoData extends \Hubleto\Erp\Core
 {
-  // Hubleto calls generateDemoData() of every Hlthcr app; only the first call generates the data.
-  private static bool $isHlthcrDemoDataGenerated = false;
+  // Hubleto calls generateDemoData() of every Ohs app; only the first call generates the data.
+  private static bool $isOhsDemoDataGenerated = false;
 
   /**
-   * Demo data of all installed Hlthcr apps ("generateDemoData: true" in the init yaml).
+   * Demo data of all installed Ohs apps ("generateDemoData: true" in the init yaml).
    */
-  public function generateForAllHlthcrApps(): void
+  public function generateForAllOhsApps(): void
   {
-    if (self::$isHlthcrDemoDataGenerated) return;
-    self::$isHlthcrDemoDataGenerated = true;
+    if (self::$isOhsDemoDataGenerated) return;
+    self::$isOhsDemoDataGenerated = true;
 
     // Order matters: later apps use records created by earlier ones.
-    $hlthcrAppNamespaces = [
-      'Hubleto\App\External\WaiBlue\HlthcrCore',
-      'Hubleto\App\External\WaiBlue\HlthcrClients',
-      'Hubleto\App\External\WaiBlue\HlthcrBranches',
-      'Hubleto\App\External\WaiBlue\HlthcrEmployees',
-      'Hubleto\App\External\WaiBlue\HlthcrAudits',
-      'Hubleto\App\External\WaiBlue\HlthcrDocuments',
-      'Hubleto\App\External\WaiBlue\HlthcrEvents',
-      'Hubleto\App\External\WaiBlue\HlthcrMedicalExams',
+    $ohsAppNamespaces = [
+      'Hubleto\App\External\WaiBlue\OhsCore',
+      'Hubleto\App\External\WaiBlue\OhsClients',
+      'Hubleto\App\External\WaiBlue\OhsBranches',
+      'Hubleto\App\External\WaiBlue\OhsEmployees',
+      'Hubleto\App\External\WaiBlue\OhsAudits',
+      'Hubleto\App\External\WaiBlue\OhsDocuments',
+      'Hubleto\App\External\WaiBlue\OhsEvents',
+      'Hubleto\App\External\WaiBlue\OhsMedicalExams',
     ];
 
-    foreach ($hlthcrAppNamespaces as $appNamespace) {
+    foreach ($ohsAppNamespaces as $appNamespace) {
       $app = $this->appManager()->getApp($appNamespace);
-      if ($app instanceof \Hubleto\App\External\WaiBlue\HlthcrCore\HlthcrApp) {
-        $app->generateHlthcrDemoData();
+      if ($app instanceof \Hubleto\App\External\WaiBlue\OhsCore\OhsApp) {
+        $app->generateOhsDemoData();
       }
     }
   }
@@ -138,7 +138,7 @@ class DemoData extends \Hubleto\Erp\Core
 
   /**
    * Fictional client companies. Company ids (IČO) 99000001+ are not real.
-   * client_type is the name of a seeded client type (HlthcrClients).
+   * client_type is the name of a seeded client type (OhsClients).
    */
   public function getDemoClients(array $demoUserIds): array
   {

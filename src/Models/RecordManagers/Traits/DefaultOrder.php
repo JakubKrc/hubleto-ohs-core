@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\RecordManagers\Traits;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\RecordManagers\Traits;
 
 /**
  * For record managers whose model describes a default order of its list (describeTable()->ui['orderBy']).

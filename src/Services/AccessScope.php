@@ -1,12 +1,12 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
 use Hubleto\App\Community\Auth\Models\User;
 
 /**
- * Record visibility rules shared by all Hlthcr apps.
- * Hubleto's generic CRUD API accepts any model, so every Hlthcr record manager must apply these rules.
+ * Record visibility rules shared by all Ohs apps.
+ * Hubleto's generic CRUD API accepts any model, so every Ohs record manager must apply these rules.
  */
 class AccessScope extends \Hubleto\Erp\Core
 {
@@ -14,7 +14,7 @@ class AccessScope extends \Hubleto\Erp\Core
   const SEES_OWNED = 'owned';
   const SEES_NOTHING = 'nothing';
 
-  const BRANCHES_APP = 'Hubleto\\App\\External\\WaiBlue\\HlthcrBranches';
+  const BRANCHES_APP = 'Hubleto\\App\\External\\WaiBlue\\OhsBranches';
 
   private function roles(): Roles
   {
@@ -22,8 +22,8 @@ class AccessScope extends \Hubleto\Erp\Core
   }
 
   /**
-   * The Hlthcr role decides, whatever the user type (both legacy apps): hygienists see own clients, nurses and medical
-   * staff all. External users see nothing; users with no Hlthcr role see by their user type, like in Hubleto.
+   * The Ohs role decides, whatever the user type (both legacy apps): hygienists see own clients, nurses and medical
+   * staff all. External users see nothing; users with no Ohs role see by their user type, like in Hubleto.
    */
   public function getVisibilityOfActiveUser(): string
   {
@@ -43,7 +43,7 @@ class AccessScope extends \Hubleto\Erp\Core
     return self::SEES_ALL;
   }
 
-  public function activeUserHasHlthcrRole(): bool
+  public function activeUserHasOhsRole(): bool
   {
     $roles = $this->roles();
     foreach (array_keys($roles->getRoleDefinitions()) as $roleKey) {
@@ -84,7 +84,7 @@ class AccessScope extends \Hubleto\Erp\Core
       });
       if ($hasBranches) {
         $linkableCustomers->orWhereIn($customerIdColumn, function ($customersOfOwnedBranches) use ($idUser) {
-          $customersOfOwnedBranches->select('id_customer')->from('hlthcr_branches')->where('id_owner', $idUser);
+          $customersOfOwnedBranches->select('id_customer')->from('ohs_branches')->where('id_owner', $idUser);
         });
       }
     });

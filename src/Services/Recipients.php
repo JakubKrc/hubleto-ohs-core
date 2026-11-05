@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
 use Hubleto\App\Community\Auth\Models\User;
 
@@ -10,7 +10,7 @@ use Hubleto\App\Community\Auth\Models\User;
  */
 class Recipients extends \Hubleto\Erp\Core
 {
-  // Active users with the given Hlthcr role.
+  // Active users with the given Ohs role.
   public function getUserIdsWithRole(string $roleKey): array
   {
     /** @var Roles */

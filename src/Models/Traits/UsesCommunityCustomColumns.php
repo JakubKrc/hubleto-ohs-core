@@ -1,10 +1,10 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\Traits;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\Traits;
 
 /**
- * For Hlthcr overrides of community models: Hubleto reads custom columns by the class in use,
- * but Hlthcr apps store them for the community model (see the patches documents).
+ * For Ohs overrides of community models: Hubleto reads custom columns by the class in use,
+ * but Ohs apps store them for the community model (see the patches documents).
  */
 trait UsesCommunityCustomColumns
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\Traits;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\Traits;
 
 /**
  * For models whose save rules read columns that a save may not send, or whose columns stay as created.

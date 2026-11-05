@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\HubletoOverrides;
+namespace Hubleto\App\External\WaiBlue\OhsCore\HubletoOverrides;
 
 use Hubleto\App\Community\Notifications\EventListeners\NotifyUpdatedRecord;
 use Hubleto\Framework\Interfaces\ModelInterface;

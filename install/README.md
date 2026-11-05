@@ -1,8 +1,8 @@
-# Installing the Hlthcr CRM (Hubleto 2)
+# Installing the Ohs CRM (Hubleto 2)
 
-Needs PHP 8.2 or newer, composer, node and npm, and a MySQL or MariaDB database. The Hlthcr repositories are public.
+Needs PHP 8.2 or newer, composer, node and npm, and a MySQL or MariaDB database. The Ohs repositories are public.
 
-Everything Hlthcr needs is in one file, `hlthcr.example.yaml` in this folder: the Hlthcr packages for composer,
+Everything Ohs needs is in one file, `ohs.example.yaml` in this folder: the Ohs packages for composer,
 and the apps and settings for `php hubleto init`.
 
 1. Create a Hubleto project:
@@ -12,15 +12,15 @@ and the apps and settings for `php hubleto init`.
    cd my-project
    ```
 
-2. Put `hlthcr.example.yaml` (from this folder on GitHub, or from a clone of this repository) into the project root
-   as `hlthcr.yaml`, and fill in the URL, database and admin values.
+2. Put `ohs.example.yaml` (from this folder on GitHub, or from a clone of this repository) into the project root
+   as `ohs.yaml`, and fill in the URL, database and admin values.
 
-3. Add the Hlthcr packages and install:
+3. Add the Ohs packages and install:
 
    ```bash
-   php hubleto prepare-composer hlthcr.yaml   # adds the 8 Hlthcr packages to composer.json
+   php hubleto prepare-composer ohs.yaml   # adds the 8 Ohs packages to composer.json
    composer update
-   php hubleto init hlthcr.yaml               # drops and recreates the database named in the yaml
+   php hubleto init ohs.yaml               # drops and recreates the database named in the yaml
    ```
 
    Run `prepare-composer` only once per project: a second run doubles the entries and breaks `composer.json`.
@@ -28,7 +28,7 @@ and the apps and settings for `php hubleto init`.
 4. Fix the Hubleto 2 project template, then build the frontend:
 
    ```bash
-   bash vendor/wai-blue/hubleto-hlthcr-core/install/fix-hubleto2-template.sh
+   bash vendor/wai-blue/hubleto-ohs-core/install/fix-hubleto2-template.sh
    npm install && npm run build
    ```
 
@@ -42,7 +42,7 @@ and the apps and settings for `php hubleto init`.
 
 7. Optional, FAKE demo data: set `generateDemoData: true` in the yaml before `php hubleto init`.
    Besides Hubleto's own demo data, it adds demo clients with branches, employees, exams, audits, documents
-   and events, and one demo user per Hlthcr role. As with Hubleto's demo users, the password is the login name:
+   and events, and one demo user per Ohs role. As with Hubleto's demo users, the password is the login name:
 
    | Role | Login | Password |
    |---|---|---|
@@ -61,16 +61,16 @@ As in the developer guide ("External apps"): clone the apps into any folder and 
 so changes show at once. Before step 3, change each repository in the yaml's `composer:` part from `vcs` to `path`:
 
 ```bash
-mkdir -p /var/www/html/hlthcr-apps && cd /var/www/html/hlthcr-apps
+mkdir -p /var/www/html/ohs-apps && cd /var/www/html/ohs-apps
 for app in core clients branches employees medical-exams audits documents events; do
-  git clone git@github.com:JakubKrc/hubleto-hlthcr-$app.git
+  git clone git@github.com:wai-blue/hubleto-ohs-$app.git
 done
 ```
 
 ```yaml
 composer:
   repositories:
-    wai-blue/hubleto-hlthcr-core: { type: path, url: /var/www/html/hlthcr-apps/hubleto-hlthcr-core }
+    wai-blue/hubleto-ohs-core: { type: path, url: /var/www/html/ohs-apps/hubleto-ohs-core }
     # ... the same for the other 7
 ```
 
@@ -83,14 +83,14 @@ The same as step 3, by hand:
 
 ```bash
 for app in core clients branches employees medical-exams audits documents events; do
-  composer config repositories.wai-blue/hubleto-hlthcr-$app \
-    "{\"type\": \"vcs\", \"url\": \"https://github.com/JakubKrc/hubleto-hlthcr-$app\", \"no-api\": true}"
+  composer config repositories.wai-blue/hubleto-ohs-$app \
+    "{\"type\": \"vcs\", \"url\": \"https://github.com/wai-blue/hubleto-ohs-$app\", \"no-api\": true}"
 done
-composer require wai-blue/hubleto-hlthcr-core:dev-main wai-blue/hubleto-hlthcr-clients:dev-main \
-  wai-blue/hubleto-hlthcr-branches:dev-main wai-blue/hubleto-hlthcr-employees:dev-main \
-  wai-blue/hubleto-hlthcr-medical-exams:dev-main wai-blue/hubleto-hlthcr-audits:dev-main \
-  wai-blue/hubleto-hlthcr-documents:dev-main wai-blue/hubleto-hlthcr-events:dev-main
-php hubleto init hlthcr.yaml
+composer require wai-blue/hubleto-ohs-core:dev-main wai-blue/hubleto-ohs-clients:dev-main \
+  wai-blue/hubleto-ohs-branches:dev-main wai-blue/hubleto-ohs-employees:dev-main \
+  wai-blue/hubleto-ohs-medical-exams:dev-main wai-blue/hubleto-ohs-audits:dev-main \
+  wai-blue/hubleto-ohs-documents:dev-main wai-blue/hubleto-ohs-events:dev-main
+php hubleto init ohs.yaml
 ```
 
 `no-api` makes composer clone with plain git, so it needs no GitHub token and avoids the GitHub API rate limit.

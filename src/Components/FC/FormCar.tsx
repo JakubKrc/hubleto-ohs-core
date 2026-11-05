@@ -4,14 +4,14 @@ import { type FormProps } from '@hubleto/react-ui/components/fc/FormInterfaces';
 import Input from '@hubleto/react-ui/components/fc/FormComponents/Input';
 
 const componentName = 'FormCar';
-const parentApp = 'Hubleto/App/External/WaiBlue/HlthcrCore';
+const parentApp = 'Hubleto/App/External/WaiBlue/OhsCore';
 const T = new Translator(parentApp + '/Loader', 'Components/' + componentName);
 
 const FormCar = (props: FormProps) => <Form
   componentName={componentName}
   parentApp={parentApp}
   model={parentApp + '/Models/Car'}
-  urlSlug='hlthcr-core/cars'
+  urlSlug='ohs/core/cars'
   title={{field: 'name', sub: T.translate('Car')}}
   tabs={{default: {content: () => <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
     <Input field='name' />

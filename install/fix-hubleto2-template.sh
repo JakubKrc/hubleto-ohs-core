@@ -1,7 +1,7 @@
 #!/bin/bash
 # Fixes the Hubleto 2 project template (hubleto/install) so that "npm run build" works.
-# Run it in the project root, after "composer require" of the Hlthcr apps and before "npm run build":
-#   bash vendor/wai-blue/hubleto-hlthcr-core/install/fix-hubleto2-template.sh
+# Run it in the project root, after "composer require" of the Ohs apps and before "npm run build":
+#   bash vendor/wai-blue/hubleto-ohs-core/install/fix-hubleto2-template.sh
 # Each fix is skipped when it is not needed (already applied, or fixed upstream), so it can run again.
 set -e
 

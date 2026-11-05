@@ -1,19 +1,19 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Controllers\Api;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Controllers\Api;
 
 use Hubleto\App\Community\Auth\Models\User;
-use Hubleto\App\External\WaiBlue\HlthcrCore\Services\DropdownRecords;
-use Hubleto\App\External\WaiBlue\HlthcrCore\Services\Roles;
+use Hubleto\App\External\WaiBlue\OhsCore\Services\DropdownRecords;
+use Hubleto\App\External\WaiBlue\OhsCore\Services\Roles;
 
 /**
- * User dropdown limited to one Hlthcr role, as in both legacy apps (hygienists for clients, branches and audits,
+ * User dropdown limited to one Ohs role, as in both legacy apps (hygienists for clients, branches and audits,
  * medical staff for clinics): active internal users with the role, plus the user the form already has.
  * Same output format as api/record/lookup.
  */
 class UserLookup extends \Hubleto\Erp\Controllers\ApiController
 {
-  const ENDPOINT = 'hlthcr-core/api/user-lookup';
+  const ENDPOINT = 'ohs/core/api/user-lookup';
 
   // Endpoint of one user column, e.g. UserLookup::endpointFor(Roles::HYGIENIST, 'id_owner').
   public static function endpointFor(string $roleKey, string $formColumn): string

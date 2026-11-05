@@ -1,10 +1,10 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\RecordManagers\Traits;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\RecordManagers\Traits;
 
 /**
  * For record managers whose dropdowns offer only active records (table column is_active).
- * The record manager implements restrictToOfferedRecords(), which the Hlthcr lookup endpoints call.
+ * The record manager implements restrictToOfferedRecords(), which the Ohs lookup endpoints call.
  */
 trait OffersActiveRecords
 {

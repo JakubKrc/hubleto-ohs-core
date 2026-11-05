@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models;
 
 use Hubleto\Framework\Db\Column\Integer;
 use Hubleto\Framework\Db\Column\Varchar;
@@ -10,7 +10,7 @@ use Hubleto\Framework\Exceptions\RecordSaveException;
  * An item of the hazard catalogue (both legacy apps call it "položka kategorizácie").
  * The four types are the same in both legacy apps, so they are a fixed list, not a table.
  */
-class Hazard extends \Hubleto\App\External\WaiBlue\HlthcrCore\Models\HlthcrModel
+class Hazard extends \Hubleto\App\External\WaiBlue\OhsCore\Models\OhsModel
 {
   const TYPE_FACTOR = 1;
   const TYPE_SPECIAL_REGULATION = 2;
@@ -22,10 +22,10 @@ class Hazard extends \Hubleto\App\External\WaiBlue\HlthcrCore\Models\HlthcrModel
   const HIGHEST_CATEGORY = 4;
   const LEVEL_YES = 1;
 
-  public string $table = 'hlthcr_hazards';
+  public string $table = 'ohs_hazards';
   public string $recordManagerClass = RecordManagers\Hazard::class;
   public ?string $lookupSqlValue = '{%TABLE%}.name';
-  public ?string $lookupUrlDetail = 'hlthcr-core/hazards/{%ID%}';
+  public ?string $lookupUrlDetail = 'ohs/core/hazards/{%ID%}';
   // Grouped by type in dropdowns, as similar names exist in several types.
   public string $lookupOrderBy = '{%TABLE%}.type, {%TABLE%}.name';
 

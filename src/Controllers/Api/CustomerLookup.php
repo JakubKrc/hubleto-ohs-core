@@ -1,18 +1,18 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Controllers\Api;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Controllers\Api;
 
 use Hubleto\App\Community\Customers\Models\Customer;
-use Hubleto\App\External\WaiBlue\HlthcrCore\Services\AccessScope;
-use Hubleto\App\External\WaiBlue\HlthcrCore\Services\DropdownRecords;
+use Hubleto\App\External\WaiBlue\OhsCore\Services\AccessScope;
+use Hubleto\App\External\WaiBlue\OhsCore\Services\DropdownRecords;
 
 /**
- * Client (Customer) dropdown limited to visible clients, also when HlthcrClients (which scopes the Customer
+ * Client (Customer) dropdown limited to visible clients, also when OhsClients (which scopes the Customer
  * model itself) is not installed. Same output format as api/record/lookup.
  */
 class CustomerLookup extends \Hubleto\Erp\Controllers\ApiController
 {
-  const ENDPOINT = 'hlthcr-core/api/customer-lookup';
+  const ENDPOINT = 'ohs/core/api/customer-lookup';
 
   public function renderJson(): array
   {

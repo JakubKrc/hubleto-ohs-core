@@ -3,13 +3,13 @@ import { type TableMeta, type TableProps } from '@hubleto/react-ui/components/fc
 import FormHazard from './FormHazard'
 
 const componentName = 'TableHazards'
-const parentApp = 'Hubleto/App/External/WaiBlue/HlthcrCore'
+const parentApp = 'Hubleto/App/External/WaiBlue/OhsCore'
 
 const TableHazards = (props: TableProps) => <Table
   componentName={componentName}
   parentApp={parentApp}
   model={parentApp + '/Models/Hazard'}
-  baseUrlSlug='hlthcr-core/hazards'
+  baseUrlSlug='ohs/core/hazards'
   formModalProps={{type: 'right wide'}}
   renderForm={(table: TableMeta) => <FormHazard {...table.getDefaultFormProps()} />}
   {...props}

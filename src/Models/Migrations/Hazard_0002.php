@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\Migrations;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\Migrations;
 
 use Hubleto\Framework\Migration;
 
@@ -9,12 +9,12 @@ class Hazard_0002 extends Migration
 {
   public function upgradeSchema(): void
   {
-    $this->db->execute("ALTER TABLE `hlthcr_hazards` ADD UNIQUE INDEX `name` (`name`)");
+    $this->db->execute("ALTER TABLE `ohs_hazards` ADD UNIQUE INDEX `name` (`name`)");
   }
 
   public function downgradeSchema(): void
   {
-    $this->db->execute("ALTER TABLE `hlthcr_hazards` DROP INDEX `name`");
+    $this->db->execute("ALTER TABLE `ohs_hazards` DROP INDEX `name`");
   }
 
   public function upgradeForeignKeys(): void

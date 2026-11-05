@@ -4,10 +4,10 @@ import Translator from '@hubleto/react-ui/core/Translator';
 import Input, { type InputProps, InputMetaContext } from '@hubleto/react-ui/components/fc/Input';
 import { FormMetaContext } from '@hubleto/react-ui/components/fc/Form';
 
-const T = new Translator('Hubleto/App/External/WaiBlue/HlthcrCore/Loader', 'Components/ProtectedFileInput');
+const T = new Translator('Hubleto/App/External/WaiBlue/OhsCore/Loader', 'Components/ProtectedFileInput');
 
 interface ProtectedFileInputProps extends InputProps {
-  // e.g. 'hlthcr-medical-exams/exams/{%ID%}/scan'; set by the StoredFile column (HlthcrCore/Db/Column/StoredFile).
+  // e.g. 'ohs/medical-exams/exams/{%ID%}/scan'; set by the StoredFile column (OhsCore/Db/Column/StoredFile).
   downloadUrl?: string,
 }
 

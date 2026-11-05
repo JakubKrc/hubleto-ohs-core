@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Controllers\Api;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Controllers\Api;
 
 /**
  * Answer to a record change the user may not make (see Services/RecordWriteGuard).

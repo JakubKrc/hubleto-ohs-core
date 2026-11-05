@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
 /**
  * Hubleto (dev-main) re-opens the session on every session read, and with Apache mod_php each re-open repeats

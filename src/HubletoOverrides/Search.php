@@ -1,12 +1,12 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\HubletoOverrides;
+namespace Hubleto\App\External\WaiBlue\OhsCore\HubletoOverrides;
 
 use Hubleto\Erp\Api\Search as HubletoSearch;
 
 /**
- * Hubleto's global search (Ctrl+K) with the translated app names instead of the technical ones ("HlthcrAudits"),
- * and only results of apps the user has (registered in the HlthcrCore loader).
+ * Hubleto's global search (Ctrl+K) with the translated app names instead of the technical ones ("OhsAudits"),
+ * and only results of apps the user has (registered in the OhsCore loader).
  */
 class Search extends HubletoSearch
 {
@@ -19,7 +19,7 @@ class Search extends HubletoSearch
   {
     parent::__construct();
     // The class is not in a Controllers namespace, so Hubleto does not set the context itself.
-    $this->translationContext = 'hubleto-app-external-waiblue-hlthcrcore-loader';
+    $this->translationContext = 'hubleto-app-external-waiblue-ohscore-loader';
     $this->translationContextInner = 'HubletoOverrides\\Search';
   }
 

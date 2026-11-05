@@ -1,12 +1,12 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\HubletoOverrides;
+namespace Hubleto\App\External\WaiBlue\OhsCore\HubletoOverrides;
 
-use Hubleto\App\External\WaiBlue\HlthcrCore\Interfaces\RouteGuard;
+use Hubleto\App\External\WaiBlue\OhsCore\Interfaces\RouteGuard;
 use Hubleto\Framework\Services\Router;
 
 /**
- * Hubleto's renderer with route guards in front of it. Hlthcr apps register guards
+ * Hubleto's renderer with route guards in front of it. Ohs apps register guards
  * (for example the record write rules) instead of each replacing the renderer.
  */
 class GuardedRenderer extends \Hubleto\Erp\Renderer

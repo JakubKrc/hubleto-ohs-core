@@ -1,7 +1,7 @@
 {% set codeLists = [
-  ['hlthcr-core/hazards', 'fas fa-triangle-exclamation', translate('Hazards and exam intervals')],
-  ['hlthcr-core/clinics', 'fas fa-house-medical', translate('Clinics and their medical staff')],
-  ['hlthcr-core/cars', 'fas fa-car', translate('Cars')],
+  ['ohs/core/hazards', 'fas fa-triangle-exclamation', translate('Hazards and exam intervals')],
+  ['ohs/core/clinics', 'fas fa-house-medical', translate('Clinics and their medical staff')],
+  ['ohs/core/cars', 'fas fa-car', translate('Cars')],
 ] %}
 
 <div class="flex items-center">
@@ -10,7 +10,7 @@
 
 <div class="card mt-10 w-1/2 m-auto">
   <div class="card-body">
-    <p class="mb-4">{{ translate('The code lists shared by all Hlthcr apps. Exam intervals of the hazards set the next exam date.') }}</p>
+    <p class="mb-4">{{ translate('The code lists shared by all Ohs apps. Exam intervals of the hazards set the next exam date.') }}</p>
     <div class="flex gap-2 flex-wrap">
       {% for codeList in codeLists %}
         <a href="{{ config.projectUrl }}/{{ codeList[0] }}" class="btn btn-transparent">

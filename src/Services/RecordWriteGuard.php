@@ -1,8 +1,8 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
-use Hubleto\App\External\WaiBlue\HlthcrCore\Interfaces\RouteGuard;
+use Hubleto\App\External\WaiBlue\OhsCore\Interfaces\RouteGuard;
 use Hubleto\Framework\Controllers\Api\Record\Delete;
 use Hubleto\Framework\Controllers\Api\Record\Save;
 use Hubleto\Framework\Controllers\Api\Record\SaveJunction;
@@ -13,19 +13,19 @@ use Hubleto\Framework\Controllers\Api\Record\SaveJunction;
  */
 class RecordWriteGuard extends \Hubleto\Erp\Core implements RouteGuard
 {
-  const REFUSED_ROUTE = 'hlthcr-core/api/refused';
+  const REFUSED_ROUTE = 'ohs/core/api/refused';
 
   // Code lists, event attendees and workflows: only administrators and managers change them.
   const MODELS_FOR_ADMINISTRATORS_AND_MANAGERS = [
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrCore\\Models\\Hazard',
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrBranches\\Models\\BranchType',
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrClients\\Models\\ClientType',
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrEvents\\Models\\EventHasUser',
+    'Hubleto\\App\\External\\WaiBlue\\OhsCore\\Models\\Hazard',
+    'Hubleto\\App\\External\\WaiBlue\\OhsBranches\\Models\\BranchType',
+    'Hubleto\\App\\External\\WaiBlue\\OhsClients\\Models\\ClientType',
+    'Hubleto\\App\\External\\WaiBlue\\OhsEvents\\Models\\EventHasUser',
     'Hubleto\\App\\Community\\Workflow\\Models\\Workflow',
     'Hubleto\\App\\Community\\Workflow\\Models\\WorkflowStep',
   ];
 
-  // State history is written by Hubleto itself, and automats change any record: no Hlthcr role edits them.
+  // State history is written by Hubleto itself, and automats change any record: no Ohs role edits them.
   const MODELS_FOR_ADMINISTRATORS_ONLY = [
     'Hubleto\\App\\Community\\Workflow\\Models\\WorkflowHistory',
     'Hubleto\\App\\Community\\Workflow\\Models\\Automat',
@@ -33,14 +33,14 @@ class RecordWriteGuard extends \Hubleto\Erp\Core implements RouteGuard
 
   // Clinics, their staff and cars: managers and these roles change them (both legacy apps).
   const OTHER_ROLES_CHANGING_MODEL = [
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrCore\\Models\\Clinic' => [Roles::NURSE],
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrCore\\Models\\ClinicHasMedicalStaff' => [Roles::NURSE],
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrCore\\Models\\Car' => [Roles::NURSE, Roles::HYGIENIST],
+    'Hubleto\\App\\External\\WaiBlue\\OhsCore\\Models\\Clinic' => [Roles::NURSE],
+    'Hubleto\\App\\External\\WaiBlue\\OhsCore\\Models\\ClinicHasMedicalStaff' => [Roles::NURSE],
+    'Hubleto\\App\\External\\WaiBlue\\OhsCore\\Models\\Car' => [Roles::NURSE, Roles::HYGIENIST],
   ];
 
   // Medical staff change only exams (both legacy apps show them clients and branches read-only).
   const APPS_MEDICAL_STAFF_MAY_CHANGE = [
-    'Hubleto\\App\\External\\WaiBlue\\HlthcrMedicalExams',
+    'Hubleto\\App\\External\\WaiBlue\\OhsMedicalExams',
     'Hubleto\\App\\Community\\Notifications',
     'Hubleto\\App\\Community\\Dashboards',
   ];
@@ -48,17 +48,17 @@ class RecordWriteGuard extends \Hubleto\Erp\Core implements RouteGuard
   // Columns that link a record to its parent: the user must see the parent.
   const PARENT_MODELS_BY_COLUMN = [
     'id_customer' => 'Hubleto\\App\\Community\\Customers\\Models\\Customer',
-    'id_branch' => 'Hubleto\\App\\External\\WaiBlue\\HlthcrBranches\\Models\\Branch',
-    'id_job' => 'Hubleto\\App\\External\\WaiBlue\\HlthcrBranches\\Models\\Job',
-    'id_employee' => 'Hubleto\\App\\External\\WaiBlue\\HlthcrEmployees\\Models\\Employee',
-    'id_exam' => 'Hubleto\\App\\External\\WaiBlue\\HlthcrMedicalExams\\Models\\Exam',
-    'id_audit' => 'Hubleto\\App\\External\\WaiBlue\\HlthcrAudits\\Models\\Audit',
+    'id_branch' => 'Hubleto\\App\\External\\WaiBlue\\OhsBranches\\Models\\Branch',
+    'id_job' => 'Hubleto\\App\\External\\WaiBlue\\OhsBranches\\Models\\Job',
+    'id_employee' => 'Hubleto\\App\\External\\WaiBlue\\OhsEmployees\\Models\\Employee',
+    'id_exam' => 'Hubleto\\App\\External\\WaiBlue\\OhsMedicalExams\\Models\\Exam',
+    'id_audit' => 'Hubleto\\App\\External\\WaiBlue\\OhsAudits\\Models\\Audit',
   ];
 
-  // Hubleto's documents are the work documents of HlthcrDocuments: they are changed with that app, not with Hubleto's
+  // Hubleto's documents are the work documents of OhsDocuments: they are changed with that app, not with Hubleto's
   // Documents app (its templates stay for administrators).
   const APPS_OF_COMMUNITY_MODELS = [
-    'Hubleto\\App\\Community\\Documents\\Models\\Document' => 'Hubleto\\App\\External\\WaiBlue\\HlthcrDocuments',
+    'Hubleto\\App\\Community\\Documents\\Models\\Document' => 'Hubleto\\App\\External\\WaiBlue\\OhsDocuments',
   ];
 
   // Related records that Hubleto's own forms save together with the record.
@@ -83,7 +83,7 @@ class RecordWriteGuard extends \Hubleto\Erp\Core implements RouteGuard
     return self::REFUSED_ROUTE;
   }
 
-  // Used also by the forms and lists (HlthcrModel), so they offer only the changes the guard allows.
+  // Used also by the forms and lists (OhsModel), so they offer only the changes the guard allows.
   public function mayActiveUserChangeModel(string $modelClass): bool
   {
     /** @var Roles */
@@ -151,7 +151,7 @@ class RecordWriteGuard extends \Hubleto\Erp\Core implements RouteGuard
     return false;
   }
 
-  // "Hubleto\App\External\WaiBlue\HlthcrBranches\Models\Branch" belongs to "Hubleto\App\External\WaiBlue\HlthcrBranches".
+  // "Hubleto\App\External\WaiBlue\OhsBranches\Models\Branch" belongs to "Hubleto\App\External\WaiBlue\OhsBranches".
   private function getAppNamespaceOfModel(string $modelClass): string
   {
     if (isset(self::APPS_OF_COMMUNITY_MODELS[$modelClass])) return self::APPS_OF_COMMUNITY_MODELS[$modelClass];

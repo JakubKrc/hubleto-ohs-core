@@ -3,13 +3,13 @@ import { type TableMeta, type TableProps } from '@hubleto/react-ui/components/fc
 import FormClinic from './FormClinic'
 
 const componentName = 'TableClinics'
-const parentApp = 'Hubleto/App/External/WaiBlue/HlthcrCore'
+const parentApp = 'Hubleto/App/External/WaiBlue/OhsCore'
 
 const TableClinics = (props: TableProps) => <Table
   componentName={componentName}
   parentApp={parentApp}
   model={parentApp + '/Models/Clinic'}
-  baseUrlSlug='hlthcr-core/clinics'
+  baseUrlSlug='ohs/core/clinics'
   formModalProps={{type: 'right wide'}}
   renderForm={(table: TableMeta) => <FormClinic {...table.getDefaultFormProps()} />}
   {...props}

@@ -1,13 +1,13 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
 use Hubleto\App\Community\Auth\Models\User;
 use Hubleto\App\Community\Auth\Models\UserRole;
 
 /**
- * The Hlthcr user roles, created as standard Hubleto user roles.
- * Role ids are stored in the HlthcrCore app config, so the code never depends on role names.
+ * The Ohs user roles, created as standard Hubleto user roles.
+ * Role ids are stored in the OhsCore app config, so the code never depends on role names.
  */
 class Roles extends \Hubleto\Erp\Core
 {
@@ -16,10 +16,10 @@ class Roles extends \Hubleto\Erp\Core
   const NURSE = 'nurse';
   const MEDICAL_STAFF = 'medical-staff';
 
-  // Same place as the HlthcrCore app config. The app object is not available during install.
-  const ROLE_IDS_CONFIG_PATH = 'apps/Hubleto\\App\\External\\WaiBlue\\HlthcrCore/roleIds/';
+  // Same place as the OhsCore app config. The app object is not available during install.
+  const ROLE_IDS_CONFIG_PATH = 'apps/Hubleto\\App\\External\\WaiBlue\\OhsCore/roleIds/';
 
-  public string $translationContext = 'hubleto-app-external-waiblue-hlthcrcore-loader';
+  public string $translationContext = 'hubleto-app-external-waiblue-ohscore-loader';
   public string $translationContextInner = 'Services\\Roles';
 
   public function getRoleDefinitions(): array

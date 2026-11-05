@@ -1,8 +1,8 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Seeds;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Seeds;
 
-use Hubleto\App\External\WaiBlue\HlthcrCore\Models\Hazard;
+use Hubleto\App\External\WaiBlue\OhsCore\Models\Hazard;
 
 /**
  * Starting hazard catalogue (Slovak legal categories, from the legacy catalogue).

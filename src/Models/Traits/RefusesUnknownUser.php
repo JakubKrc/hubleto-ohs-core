@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\Traits;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\Traits;
 
 use Hubleto\App\Community\Auth\Models\User;
 use Hubleto\Framework\Exceptions\RecordSaveException;

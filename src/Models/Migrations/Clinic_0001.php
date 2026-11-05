@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\Migrations;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\Migrations;
 
 use Hubleto\Framework\Migration;
 
@@ -8,7 +8,7 @@ class Clinic_0001 extends Migration
 {
   public function upgradeSchema(): void
   {
-    $this->db->execute("CREATE TABLE IF NOT EXISTS `hlthcr_clinics` (
+    $this->db->execute("CREATE TABLE IF NOT EXISTS `ohs_clinics` (
       `id` int(8) primary key auto_increment,
       `name` varchar(255) NOT NULL,
       `street` varchar(255) NULL DEFAULT NULL,
@@ -23,7 +23,7 @@ class Clinic_0001 extends Migration
 
   public function downgradeSchema(): void
   {
-    $this->db->execute("DROP TABLE IF EXISTS `hlthcr_clinics`");
+    $this->db->execute("DROP TABLE IF EXISTS `ohs_clinics`");
   }
 
   public function upgradeForeignKeys(): void

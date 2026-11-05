@@ -1,10 +1,10 @@
 {
-    "name": "wai-blue/hubleto-hlthcr-core",
+    "name": "wai-blue/hubleto-ohs-core",
     "license": "proprietary",
-    "description": "Hlthcr core for Hubleto: occupational health code lists (hazards, clinics, cars), roles and shared services of the Hlthcr apps",
+    "description": "Ohs core for Hubleto: occupational health code lists (hazards, clinics, cars), roles and shared services of the Ohs apps",
     "autoload": {
         "psr-4": {
-            "Hubleto\\App\\External\\WaiBlue\\HlthcrCore\\": "src"
+            "Hubleto\\App\\External\\WaiBlue\\OhsCore\\": "src"
         }
     },
     "minimum-stability": "dev"

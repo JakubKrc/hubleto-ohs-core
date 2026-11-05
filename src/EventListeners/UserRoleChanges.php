@@ -1,14 +1,14 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\EventListeners;
+namespace Hubleto\App\External\WaiBlue\OhsCore\EventListeners;
 
 use Hubleto\App\Community\Auth\Models\UserHasRole;
-use Hubleto\App\External\WaiBlue\HlthcrCore\Services\HomeDashboard;
-use Hubleto\App\External\WaiBlue\HlthcrCore\Services\RoleApps;
+use Hubleto\App\External\WaiBlue\OhsCore\Services\HomeDashboard;
+use Hubleto\App\External\WaiBlue\OhsCore\Services\RoleApps;
 use Hubleto\Framework\Interfaces\ModelInterface;
 
 /**
- * A user who gets a Hlthcr role also gets the apps and the home dashboard panels of that role.
+ * A user who gets an Ohs role also gets the apps and the home dashboard panels of that role.
  */
 class UserRoleChanges extends \Hubleto\Framework\EventListener implements \Hubleto\Framework\Interfaces\EventListenerInterface
 {

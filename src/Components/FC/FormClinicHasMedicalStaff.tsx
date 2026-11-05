@@ -5,7 +5,7 @@ import { type FormProps } from '@hubleto/react-ui/components/fc/FormInterfaces';
 import Input from '@hubleto/react-ui/components/fc/FormComponents/Input';
 
 const componentName = 'FormClinicHasMedicalStaff';
-const parentApp = 'Hubleto/App/External/WaiBlue/HlthcrCore';
+const parentApp = 'Hubleto/App/External/WaiBlue/OhsCore';
 const T = new Translator(parentApp + '/Loader', 'Components/' + componentName);
 
 // Added in the clinic's tab, the clinic is given (both legacy apps).
@@ -22,7 +22,7 @@ const FormClinicHasMedicalStaff = (props: FormProps) => <Form
   componentName={componentName}
   parentApp={parentApp}
   model={parentApp + '/Models/ClinicHasMedicalStaff'}
-  urlSlug='hlthcr-core/clinic-has-medical-staff'
+  urlSlug='ohs/core/clinic-has-medical-staff'
   title={{ sub: T.translate('Medical staff of the clinic')}}
   tabs={{default: {content: () => <TabDefault />}}}
   {...props}

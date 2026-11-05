@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
 /**
  * Adding months to a date the way people expect it: 31.08. + 6 months is 28.02., not 03.03.

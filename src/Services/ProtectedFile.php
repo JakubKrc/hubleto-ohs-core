@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
 /**
  * Sends an uploaded file to the browser. The upload folder itself is not public (it will hold medical scans),
@@ -8,7 +8,7 @@ namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
  */
 class ProtectedFile extends \Hubleto\Erp\Core
 {
-  public string $translationContext = 'hubleto-app-external-waiblue-hlthcrcore-loader';
+  public string $translationContext = 'hubleto-app-external-waiblue-ohscore-loader';
   public string $translationContextInner = 'Services\\ProtectedFile';
 
   /**

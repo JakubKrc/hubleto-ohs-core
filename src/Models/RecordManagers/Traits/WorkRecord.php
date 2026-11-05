@@ -1,8 +1,8 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\RecordManagers\Traits;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\RecordManagers\Traits;
 
-use Hubleto\App\External\WaiBlue\HlthcrCore\Services\AccessScope;
+use Hubleto\App\External\WaiBlue\OhsCore\Services\AccessScope;
 
 /**
  * For record managers of the service's work records (audits, deficiencies, working documents).

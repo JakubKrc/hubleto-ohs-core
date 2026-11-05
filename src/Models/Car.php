@@ -1,15 +1,15 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models;
 
 use Hubleto\Framework\Db\Column\Varchar;
 
-class Car extends \Hubleto\App\External\WaiBlue\HlthcrCore\Models\HlthcrModel
+class Car extends \Hubleto\App\External\WaiBlue\OhsCore\Models\OhsModel
 {
-  public string $table = 'hlthcr_cars';
+  public string $table = 'ohs_cars';
   public string $recordManagerClass = RecordManagers\Car::class;
   public ?string $lookupSqlValue = 'concat({%TABLE%}.name, " (", {%TABLE%}.license_plate, ")")';
-  public ?string $lookupUrlDetail = 'hlthcr-core/cars/{%ID%}';
+  public ?string $lookupUrlDetail = 'ohs/core/cars/{%ID%}';
 
   public function describeColumns(): array
   {

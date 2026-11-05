@@ -6,19 +6,19 @@ import TableCars from './Components/FC/TableCars'
 import TableClinicHasMedicalStaff from './Components/FC/TableClinicHasMedicalStaff'
 import ProtectedFileInput from './Components/FC/ProtectedFileInput'
 
-class HlthcrCoreApp extends App {
+class OhsCoreApp extends App {
   init() {
     super.init();
-    globalThis.hubleto.registerReactComponent('HlthcrCoreTableHazards', TableHazards);
-    globalThis.hubleto.registerReactComponent('HlthcrCoreTableClinics', TableClinics);
-    globalThis.hubleto.registerReactComponent('HlthcrCoreTableCars', TableCars);
-    globalThis.hubleto.registerReactComponent('HlthcrCoreTableClinicHasMedicalStaff', TableClinicHasMedicalStaff);
+    globalThis.hubleto.registerReactComponent('OhsCoreTableHazards', TableHazards);
+    globalThis.hubleto.registerReactComponent('OhsCoreTableClinics', TableClinics);
+    globalThis.hubleto.registerReactComponent('OhsCoreTableCars', TableCars);
+    globalThis.hubleto.registerReactComponent('OhsCoreTableClinicHasMedicalStaff', TableClinicHasMedicalStaff);
 
-    globalThis.hubleto.registerReactComponent('HlthcrCoreProtectedFileInput', ProtectedFileInput);
+    globalThis.hubleto.registerReactComponent('OhsCoreProtectedFileInput', ProtectedFileInput);
 
-    // For Hubleto inputs the Hlthcr apps do not use (e.g. the customer's "Manažér").
-    globalThis.hubleto.registerReactComponent('HlthcrCoreNoInput', () => null);
+    // For Hubleto inputs the Ohs apps do not use (e.g. the customer's "Manažér").
+    globalThis.hubleto.registerReactComponent('OhsCoreNoInput', () => null);
   }
 }
 
-globalThis.hubleto.registerApp('Hubleto/App/External/WaiBlue/HlthcrCore', new HlthcrCoreApp());
+globalThis.hubleto.registerApp('Hubleto/App/External/WaiBlue/OhsCore', new OhsCoreApp());

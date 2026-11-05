@@ -1,6 +1,6 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\Migrations;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\Migrations;
 
 use Hubleto\Framework\Migration;
 
@@ -9,12 +9,12 @@ class Clinic_0002 extends Migration
 {
   public function upgradeSchema(): void
   {
-    $this->db->execute("ALTER TABLE `hlthcr_clinics` ADD COLUMN `type` varchar(255) NULL DEFAULT NULL AFTER `name`");
+    $this->db->execute("ALTER TABLE `ohs_clinics` ADD COLUMN `type` varchar(255) NULL DEFAULT NULL AFTER `name`");
   }
 
   public function downgradeSchema(): void
   {
-    $this->db->execute("ALTER TABLE `hlthcr_clinics` DROP COLUMN `type`");
+    $this->db->execute("ALTER TABLE `ohs_clinics` DROP COLUMN `type`");
   }
 
   public function upgradeForeignKeys(): void

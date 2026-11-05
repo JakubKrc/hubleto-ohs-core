@@ -4,14 +4,14 @@ import { type FormProps } from '@hubleto/react-ui/components/fc/FormInterfaces';
 import Input from '@hubleto/react-ui/components/fc/FormComponents/Input';
 
 const componentName = 'FormHazard';
-const parentApp = 'Hubleto/App/External/WaiBlue/HlthcrCore';
+const parentApp = 'Hubleto/App/External/WaiBlue/OhsCore';
 const T = new Translator(parentApp + '/Loader', 'Components/' + componentName);
 
 const FormHazard = (props: FormProps) => <Form
   componentName={componentName}
   parentApp={parentApp}
   model={parentApp + '/Models/Hazard'}
-  urlSlug='hlthcr-core/hazards'
+  urlSlug='ohs/core/hazards'
   title={{field: 'name', sub: T.translate('Hazard')}}
   tabs={{
     default: {title: <b>{T.translate('Hazard')}</b>, content: () => <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>

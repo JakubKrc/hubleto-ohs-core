@@ -1,9 +1,9 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\Traits;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\Traits;
 
 /**
- * For Hlthcr overrides of community models: outside the overridden methods they behave as the community model
+ * For Ohs overrides of community models: outside the overridden methods they behave as the community model
  * (same migrations, config keys and translations). Call it in the constructor, after parent::__construct().
  */
 trait BehavesAsCommunityModel

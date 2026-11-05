@@ -1,29 +1,29 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
 use Hubleto\Framework\Interfaces\CoreInterface;
 
 /**
- * Reads <app>/Lang/<lang>.json of the Hlthcr apps (Hubleto core reads only the project's lang folder) and a few
+ * Reads <app>/Lang/<lang>.json of the Ohs apps (Hubleto core reads only the project's lang folder) and a few
  * label overrides <app>/Lang/overrides/<lang>/<context>.json for community apps (only where the meaning is unclear).
  */
 class Translator extends \Hubleto\Framework\Services\Translator
 {
-  const HLTHCR_APP_CONTEXT_PREFIX = 'hubleto-app-external-waiblue-';
-  const HLTHCR_APP_CONTEXT_SUFFIX = '-loader';
-  // Composer packages of the Hlthcr apps start with this name.
-  const HLTHCR_PACKAGE_PREFIX = 'wai-blue/hubleto-hlthcr-';
+  const OHS_APP_CONTEXT_PREFIX = 'hubleto-app-external-waiblue-';
+  const OHS_APP_CONTEXT_SUFFIX = '-loader';
+  // Composer packages of the Ohs apps start with this name.
+  const OHS_PACKAGE_PREFIX = 'wai-blue/hubleto-ohs-';
 
   /** @var array<string, string>|null [app short name => app folder], read once per request */
-  private ?array $hlthcrAppFolders = null;
+  private ?array $ohsAppFolders = null;
 
   /** @var array<string, bool> "language/context" pairs whose overrides are already merged */
   private array $overridesApplied = [];
 
   /**
    * After this call the DI container returns this translator instead of the core one.
-   * Called by every Hlthcr app when it is created (HlthcrApp::__construct()), since apps start alphabetically.
+   * Called by every Ohs app when it is created (OhsApp::__construct()), since apps start alphabetically.
    */
   public static function register(): void
   {
@@ -36,7 +36,7 @@ class Translator extends \Hubleto\Framework\Services\Translator
   public function getDictionaryFilename(CoreInterface $core, string $language, string $context): string
   {
     $normalizedContext = strtolower(strtr($context, '\\/', '--'));
-    $appFolder = $this->findHlthcrAppFolderForContext($core, $normalizedContext);
+    $appFolder = $this->findOhsAppFolderForContext($core, $normalizedContext);
 
     if ($appFolder === '') {
       return parent::getDictionaryFilename($core, $language, $context);
@@ -68,14 +68,14 @@ class Translator extends \Hubleto\Framework\Services\Translator
 
     if (strlen($language) != 2) return $dictionary;
 
-    foreach ($this->getHlthcrAppFolders() as $appFolderName => $appFolder) {
+    foreach ($this->getOhsAppFolders() as $appFolderName => $appFolder) {
       $dictionaryFile = $appFolder . '/Lang/' . $language . '.json';
       if (!is_file($dictionaryFile)) continue;
 
       $appDictionary = json_decode((string) file_get_contents($dictionaryFile), true);
       if (!is_array($appDictionary)) continue;
 
-      $context = self::HLTHCR_APP_CONTEXT_PREFIX . strtolower($appFolderName) . self::HLTHCR_APP_CONTEXT_SUFFIX;
+      $context = self::OHS_APP_CONTEXT_PREFIX . strtolower($appFolderName) . self::OHS_APP_CONTEXT_SUFFIX;
       $dictionary[$context] = $appDictionary;
     }
 
@@ -92,7 +92,7 @@ class Translator extends \Hubleto\Framework\Services\Translator
   private function loadOverrides(CoreInterface $core, string $language): array
   {
     $overrides = [];
-    foreach ($this->getHlthcrAppFolders() as $appFolder) {
+    foreach ($this->getOhsAppFolders() as $appFolder) {
       $overridesFolder = $appFolder . '/Lang/overrides/' . $language;
       if (!is_dir($overridesFolder)) continue;
 
@@ -121,15 +121,15 @@ class Translator extends \Hubleto\Framework\Services\Translator
   }
 
   /**
-   * Returns [app short name => app folder] of the installed Hlthcr apps (composer packages wai-blue/hubleto-hlthcr-*).
+   * Returns [app short name => app folder] of the installed Ohs apps (composer packages wai-blue/hubleto-ohs-*).
    */
-  private function getHlthcrAppFolders(): array
+  private function getOhsAppFolders(): array
   {
-    if ($this->hlthcrAppFolders !== null) return $this->hlthcrAppFolders;
+    if ($this->ohsAppFolders !== null) return $this->ohsAppFolders;
 
-    $this->hlthcrAppFolders = [];
+    $this->ohsAppFolders = [];
     foreach (\Composer\InstalledVersions::getInstalledPackages() as $packageName) {
-      if (!str_starts_with($packageName, self::HLTHCR_PACKAGE_PREFIX)) continue;
+      if (!str_starts_with($packageName, self::OHS_PACKAGE_PREFIX)) continue;
 
       $packageFolder = \Composer\InstalledVersions::getInstallPath($packageName);
       $manifestFile = $packageFolder . '/src/manifest.yaml';
@@ -138,24 +138,24 @@ class Translator extends \Hubleto\Framework\Services\Translator
       $manifest = (array) \Symfony\Component\Yaml\Yaml::parse((string) file_get_contents($manifestFile));
       $appNamespace = (string) ($manifest['namespace'] ?? '');
       $appShortName = substr($appNamespace, strrpos($appNamespace, '\\') + 1);
-      $this->hlthcrAppFolders[$appShortName] = realpath($packageFolder . '/src');
+      $this->ohsAppFolders[$appShortName] = realpath($packageFolder . '/src');
     }
-    return $this->hlthcrAppFolders;
+    return $this->ohsAppFolders;
   }
 
-  private function findHlthcrAppFolderForContext(CoreInterface $core, string $normalizedContext): string
+  private function findOhsAppFolderForContext(CoreInterface $core, string $normalizedContext): string
   {
-    $isHlthcrAppContext = str_starts_with($normalizedContext, self::HLTHCR_APP_CONTEXT_PREFIX)
-      && str_ends_with($normalizedContext, self::HLTHCR_APP_CONTEXT_SUFFIX);
-    if (!$isHlthcrAppContext) return '';
+    $isOhsAppContext = str_starts_with($normalizedContext, self::OHS_APP_CONTEXT_PREFIX)
+      && str_ends_with($normalizedContext, self::OHS_APP_CONTEXT_SUFFIX);
+    if (!$isOhsAppContext) return '';
 
     $appNameLowercase = substr(
       $normalizedContext,
-      strlen(self::HLTHCR_APP_CONTEXT_PREFIX),
-      -strlen(self::HLTHCR_APP_CONTEXT_SUFFIX)
+      strlen(self::OHS_APP_CONTEXT_PREFIX),
+      -strlen(self::OHS_APP_CONTEXT_SUFFIX)
     );
 
-    foreach ($this->getHlthcrAppFolders() as $appFolderName => $appFolder) {
+    foreach ($this->getOhsAppFolders() as $appFolderName => $appFolder) {
       if (strtolower($appFolderName) == $appNameLowercase) return $appFolder;
     }
     return '';

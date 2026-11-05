@@ -1,20 +1,20 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Services;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
 use Hubleto\App\Community\Auth\Models\User;
 use Hubleto\App\Community\Dashboards\Models\Dashboard;
 use Hubleto\App\Community\Dashboards\Models\Panel;
 
 /**
- * The home screen of Hlthcr users: a default Hubleto dashboard with the panels both legacy apps show.
+ * The home screen of Ohs users: a default Hubleto dashboard with the panels both legacy apps show.
  * Both show the hygienist the audits of the next month; other panels differ, so they are left out.
  */
 class HomeDashboard extends \Hubleto\Erp\Core
 {
   // [board url slug => panel title]
   const BOARDS_FOR_INTERNAL_ROLES = [
-    'hlthcr-audits/boards/upcoming-audits' => 'Najbližšie audity (max 1 mesiac)',
+    'ohs/audits/boards/upcoming-audits' => 'Najbližšie audity (max 1 mesiac)',
   ];
 
   // For installations with existing users (Cli/setup-home-dashboards.php) and for the demo data.
@@ -34,11 +34,11 @@ class HomeDashboard extends \Hubleto\Erp\Core
     $isDashboardsAppInstalled = $this->appManager()->getApp(\Hubleto\App\Community\Dashboards\Loader::class) !== null;
     if (!$isDashboardsAppInstalled || $idUser <= 0) return;
 
-    // Users with an Hlthcr role get an own dashboard even without panels,
+    // Users with an Ohs role get an own dashboard even without panels,
     // otherwise Hubleto would show them somebody else's default dashboard.
     $boards = $this->getBoardsForUser($idUser);
-    $hasHlthcrRole = count($this->getService(RoleApps::class)->getAppsForUser($idUser)) > 0;
-    if (count($boards) == 0 && !$hasHlthcrRole) return;
+    $hasOhsRole = count($this->getService(RoleApps::class)->getAppsForUser($idUser)) > 0;
+    if (count($boards) == 0 && !$hasOhsRole) return;
 
     $idDashboard = $this->getOrCreateDefaultDashboard($idUser);
     /** @var Panel */
@@ -104,7 +104,7 @@ class HomeDashboard extends \Hubleto\Erp\Core
     $createdDashboard = $mDashboard->record->create([
       'id_owner' => $idUser,
       'title' => 'Prehľad',
-      'slug' => 'hlthcr',
+      'slug' => 'ohs',
       'color' => '#0062b1',
       'is_default' => 1,
     ]);

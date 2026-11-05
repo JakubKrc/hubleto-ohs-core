@@ -1,9 +1,9 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models;
 
-use Hubleto\App\External\WaiBlue\HlthcrCore\Services\Roles;
-use Hubleto\App\External\WaiBlue\HlthcrCore\Controllers\Api\UserLookup;
+use Hubleto\App\External\WaiBlue\OhsCore\Services\Roles;
+use Hubleto\App\External\WaiBlue\OhsCore\Controllers\Api\UserLookup;
 use Hubleto\App\Community\Auth\Models\User;
 use Hubleto\Framework\Db\Column\Lookup;
 
@@ -11,12 +11,12 @@ use Hubleto\Framework\Db\Column\Lookup;
  * A medical staff user working in a clinic: they see and plan only this clinic's exams.
  * The clinic itself has no user field (legacy: the clinic's `id_user`).
  */
-class ClinicHasMedicalStaff extends \Hubleto\App\External\WaiBlue\HlthcrCore\Models\HlthcrModel
+class ClinicHasMedicalStaff extends \Hubleto\App\External\WaiBlue\OhsCore\Models\OhsModel
 {
-  public string $table = 'hlthcr_clinic_has_medical_staff';
+  public string $table = 'ohs_clinic_has_medical_staff';
   public string $recordManagerClass = RecordManagers\ClinicHasMedicalStaff::class;
   public ?string $lookupSqlValue = '(select concat(first_name, " ", last_name) from users where users.id = {%TABLE%}.id_user)';
-  public ?string $lookupUrlDetail = 'hlthcr-core/clinic-has-medical-staff/{%ID%}';
+  public ?string $lookupUrlDetail = 'ohs/core/clinic-has-medical-staff/{%ID%}';
 
   public array $relations = [
     'CLINIC' => [ self::BELONGS_TO, Clinic::class, 'id_clinic', 'id' ],

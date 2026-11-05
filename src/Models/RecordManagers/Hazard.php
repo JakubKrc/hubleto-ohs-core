@@ -1,10 +1,10 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\RecordManagers;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\RecordManagers;
 
 class Hazard extends \Hubleto\Erp\RecordManager
 {
-  public $table = 'hlthcr_hazards';
+  public $table = 'ohs_hazards';
 
   public function prepareReadQuery(mixed $query = null, int $level = 0, array|null $includeRelations = null): mixed
   {

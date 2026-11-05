@@ -1,8 +1,8 @@
 <?php
 
-namespace Hubleto\App\External\WaiBlue\HlthcrCore\Models\Traits;
+namespace Hubleto\App\External\WaiBlue\OhsCore\Models\Traits;
 
-use Hubleto\App\External\WaiBlue\HlthcrCore\Models\Hazard;
+use Hubleto\App\External\WaiBlue\OhsCore\Models\Hazard;
 use Hubleto\Framework\Exceptions\RecordSaveException;
 
 /**
@@ -36,10 +36,10 @@ trait HasHazardLevel
     }
     $yesText = $this->quoteSqlText($this->translate('Yes'));
 
-    return 'select case when hlthcr_hazards.type = ' . Hazard::TYPE_FACTOR
+    return 'select case when ohs_hazards.type = ' . Hazard::TYPE_FACTOR
       . ' then (case ' . $this->table . '.level' . $categoryCases . ' end)'
       . ' else ' . $yesText . ' end'
-      . ' from hlthcr_hazards where hlthcr_hazards.id = ' . $this->table . '.id_hazard'
+      . ' from ohs_hazards where ohs_hazards.id = ' . $this->table . '.id_hazard'
     ;
   }
 
