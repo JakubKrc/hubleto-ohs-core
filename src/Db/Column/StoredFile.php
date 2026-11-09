@@ -3,9 +3,8 @@
 namespace Hubleto\App\External\WaiBlue\OhsCore\Db\Column;
 
 /**
- * File column that renames only new uploads.
- * Hubleto's File column applies the rename pattern also to the already saved path that the form sends back
- * on every save, so the record would point to a file that does not exist.
+ * File column whose file is downloaded through a checked route, because the upload folder is not public.
+ * The model makes sure a saved path is the record's own (see KeepsStoredFiles).
  */
 class StoredFile extends \Hubleto\Framework\Db\Column\File
 {
@@ -15,14 +14,5 @@ class StoredFile extends \Hubleto\Framework\Db\Column\File
     $this->setReactComponent('OhsCoreProtectedFileInput');
     $this->setProperty('downloadUrl', $downloadUrl);
     return $this;
-  }
-
-  public function normalize(mixed $value): mixed
-  {
-    $isNewUpload = is_array($value);
-    if ($isNewUpload) return parent::normalize($value);
-
-    // An already saved path; the model makes sure it is the record's own (see KeepsStoredFiles).
-    return $value;
   }
 }

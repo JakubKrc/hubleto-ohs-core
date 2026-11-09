@@ -41,7 +41,9 @@ const ProtectedFileUpload = (props: ProtectedFileInputProps) => {
 
   function changeFile(files: Array<ImageType>) {
     const file: any = files[0];
+    // Hubleto's File column saves the file only when the value is marked as changed.
     input.changeValue({
+      changed: true,
       fileName: file ? file.file.name : null,
       fileData: file ? file.fileData : null,
       fileSize: file ? (parseInt(file.file.size) ?? 0) : null,

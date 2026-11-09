@@ -14,7 +14,8 @@ trait KeepsStoredFiles
     if (!array_key_exists($column, $record)) return $record;
 
     $value = $record[$column];
-    $isNewUpload = is_array($value);
+    // Hubleto's File column stores the file name of an unchanged value as the path, so only a changed one is an upload.
+    $isNewUpload = is_array($value) && ($value['changed'] ?? false) === true;
     $isRemoved = $value === null || $value === '';
     if ($isNewUpload || $isRemoved) return $record;
 
