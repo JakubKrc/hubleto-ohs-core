@@ -9,14 +9,14 @@
 ### "no-api" makes composer clone with plain git, without GitHub API calls (no token, no API rate limit).
 composer:
   repositories:
-    wai-blue/hubleto-ohs-core: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-core', no-api: true }
-    wai-blue/hubleto-ohs-clients: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-clients', no-api: true }
-    wai-blue/hubleto-ohs-branches: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-branches', no-api: true }
-    wai-blue/hubleto-ohs-employees: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-employees', no-api: true }
-    wai-blue/hubleto-ohs-medical-exams: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-medical-exams', no-api: true }
-    wai-blue/hubleto-ohs-audits: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-audits', no-api: true }
-    wai-blue/hubleto-ohs-documents: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-documents', no-api: true }
-    wai-blue/hubleto-ohs-events: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-events', no-api: true }
+    wai-blue/hubleto-ohs-core: { type: vcs, url: 'https://github.com/JakubKrc/hubleto-ohs-core', no-api: true }
+    wai-blue/hubleto-ohs-clients: { type: vcs, url: 'https://github.com/JakubKrc/hubleto-ohs-clients', no-api: true }
+    wai-blue/hubleto-ohs-branches: { type: vcs, url: 'https://github.com/JakubKrc/hubleto-ohs-branches', no-api: true }
+    wai-blue/hubleto-ohs-employees: { type: vcs, url: 'https://github.com/JakubKrc/hubleto-ohs-employees', no-api: true }
+    wai-blue/hubleto-ohs-medical-exams: { type: vcs, url: 'https://github.com/JakubKrc/hubleto-ohs-medical-exams', no-api: true }
+    wai-blue/hubleto-ohs-audits: { type: vcs, url: 'https://github.com/JakubKrc/hubleto-ohs-audits', no-api: true }
+    wai-blue/hubleto-ohs-documents: { type: vcs, url: 'https://github.com/JakubKrc/hubleto-ohs-documents', no-api: true }
+    wai-blue/hubleto-ohs-events: { type: vcs, url: 'https://github.com/JakubKrc/hubleto-ohs-events', no-api: true }
   require:
     wai-blue/hubleto-ohs-core: dev-main
     wai-blue/hubleto-ohs-clients: dev-main

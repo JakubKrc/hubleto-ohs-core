@@ -63,7 +63,7 @@ so changes show at once. Before step 3, change each repository in the yaml's `co
 ```bash
 mkdir -p /var/www/html/ohs-apps && cd /var/www/html/ohs-apps
 for app in core clients branches employees medical-exams audits documents events; do
-  git clone git@github.com:wai-blue/hubleto-ohs-$app.git
+  git clone git@github.com:JakubKrc/hubleto-ohs-$app.git
 done
 ```
 
@@ -84,7 +84,7 @@ The same as step 3, by hand:
 ```bash
 for app in core clients branches employees medical-exams audits documents events; do
   composer config repositories.wai-blue/hubleto-ohs-$app \
-    "{\"type\": \"vcs\", \"url\": \"https://github.com/wai-blue/hubleto-ohs-$app\", \"no-api\": true}"
+    "{\"type\": \"vcs\", \"url\": \"https://github.com/JakubKrc/hubleto-ohs-$app\", \"no-api\": true}"
 done
 composer require wai-blue/hubleto-ohs-core:dev-main wai-blue/hubleto-ohs-clients:dev-main \
   wai-blue/hubleto-ohs-branches:dev-main wai-blue/hubleto-ohs-employees:dev-main \
