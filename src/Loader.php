@@ -9,8 +9,6 @@ class Loader extends OhsApp
   {
     parent::__construct();
     HubletoOverrides\NoRecordUpdateNotifications::register();
-    HubletoOverrides\GuardedRenderer::register();
-    HubletoOverrides\GuardedRenderer::addRouteGuard(Services\RecordWriteGuard::class);
     HubletoOverrides\HomePage::register();
     HubletoOverrides\Search::register();
   }
@@ -25,9 +23,7 @@ class Loader extends OhsApp
     $this->router()->get([
       '/^ohs\/core\/?$/' => Controllers\Home::class,
       '/^ohs\/core\/settings\/?$/' => Controllers\Settings::class,
-      '/^ohs\/core\/api\/customer-lookup\/?$/' => Controllers\Api\CustomerLookup::class,
       '/^ohs\/core\/api\/user-lookup\/?$/' => Controllers\Api\UserLookup::class,
-      '/^ohs\/core\/api\/refused\/?$/' => Controllers\Api\Refused::class,
     ]);
     // Replaces Hubleto's lookup endpoint (same route), see HubletoOverrides/RecordLookup.
     $this->router()->get(['/^api\/record\/lookup\/?$/' => HubletoOverrides\RecordLookup::class]);

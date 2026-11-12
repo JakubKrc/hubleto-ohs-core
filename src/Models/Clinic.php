@@ -6,7 +6,7 @@ use Hubleto\Framework\Db\Column\Email;
 use Hubleto\Framework\Db\Column\Text;
 use Hubleto\Framework\Db\Column\Varchar;
 
-class Clinic extends \Hubleto\App\External\WaiBlue\OhsCore\Models\OhsModel
+class Clinic extends \Hubleto\Erp\Model
 {
   public string $table = 'ohs_clinics';
   public string $recordManagerClass = RecordManagers\Clinic::class;

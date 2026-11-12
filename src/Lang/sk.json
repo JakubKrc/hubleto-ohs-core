@@ -57,13 +57,13 @@
     },
     "Services\\Roles": {
         "Manager": "Manažér",
-        "Sees and edits everything except settings.": "Vidí a upravuje všetko okrem nastavení.",
+        "Manages the service.": "Riadi službu.",
         "Hygienist": "Hygienik",
         "Works with own clients and branches: audits, documents, job categorisation.": "Pracuje so svojimi klientmi a prevádzkami: audity, dokumenty, kategorizácia prác.",
         "Nurse": "Zdravotná sestra",
         "Plans and records medical exams of client employees.": "Plánuje a eviduje lekárske prehliadky zamestnancov klientov.",
         "Medical staff": "Zdravotný personál",
-        "Clinic staff. Sees medical exams of own clinic only.": "Personál ambulancie. Vidí len prehliadky svojej ambulancie."
+        "Clinic staff who perform medical exams.": "Personál ambulancie, ktorý vykonáva lekárske prehliadky."
     },
     "Components\\FormHazard": {
         "Hazard": "Riziko",
@@ -95,9 +95,6 @@
         "Clinics and their medical staff": "Ambulancie a ich zdravotný personál",
         "Cars": "Autá",
         "The code lists shared by all Ohs apps. Exam intervals of the hazards set the next exam date.": "Číselníky spoločné pre všetky aplikácie Ohs. Intervaly LPP pri rizikách určujú dátum ďalšej prehliadky."
-    },
-    "Controllers\\Api\\Refused": {
-        "You do not have permission to make this change.": "Na túto zmenu nemáte oprávnenie."
     },
     "HubletoOverrides\\Search": {
         "Help: how to search": "Pomoc: ako vyhľadávať"

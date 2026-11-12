@@ -4,7 +4,7 @@ namespace Hubleto\App\External\WaiBlue\OhsCore\Models;
 
 use Hubleto\Framework\Db\Column\Varchar;
 
-class Car extends \Hubleto\App\External\WaiBlue\OhsCore\Models\OhsModel
+class Car extends \Hubleto\Erp\Model
 {
   public string $table = 'ohs_cars';
   public string $recordManagerClass = RecordManagers\Car::class;

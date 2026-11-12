@@ -11,7 +11,7 @@ use Hubleto\Framework\Db\Column\Lookup;
  * A medical staff user working in a clinic: they see and plan only this clinic's exams.
  * The clinic itself has no user field (legacy: the clinic's `id_user`).
  */
-class ClinicHasMedicalStaff extends \Hubleto\App\External\WaiBlue\OhsCore\Models\OhsModel
+class ClinicHasMedicalStaff extends \Hubleto\Erp\Model
 {
   public string $table = 'ohs_clinic_has_medical_staff';
   public string $recordManagerClass = RecordManagers\ClinicHasMedicalStaff::class;

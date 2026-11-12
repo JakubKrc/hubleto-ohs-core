@@ -2,7 +2,6 @@
 
 namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
-use Hubleto\App\Community\Auth\Models\User;
 use Hubleto\App\Community\Auth\Models\UserRole;
 
 /**
@@ -27,7 +26,7 @@ class Roles extends \Hubleto\Erp\Core
     return [
       self::MANAGER => [
         'role' => $this->translate('Manager'),
-        'description' => $this->translate('Sees and edits everything except settings.'),
+        'description' => $this->translate('Manages the service.'),
       ],
       self::HYGIENIST => [
         'role' => $this->translate('Hygienist'),
@@ -39,7 +38,7 @@ class Roles extends \Hubleto\Erp\Core
       ],
       self::MEDICAL_STAFF => [
         'role' => $this->translate('Medical staff'),
-        'description' => $this->translate('Clinic staff. Sees medical exams of own clinic only.'),
+        'description' => $this->translate('Clinic staff who perform medical exams.'),
       ],
     ];
   }
@@ -79,34 +78,5 @@ class Roles extends \Hubleto\Erp\Core
     return function ($userIdsWithRole) use ($idRole) {
       $userIdsWithRole->select('id_user')->from('user_has_roles')->where('id_role', $idRole);
     };
-  }
-
-  public function activeUserHasRole(string $roleKey): bool
-  {
-    $idRole = $this->getRoleId($roleKey);
-    if ($idRole <= 0) return false;
-    return $this->authProvider()->userHasRole($idRole);
-  }
-
-  // Hubleto administrators: the administrator user type or a role that grants everything.
-  public function isActiveUserAdministrator(): bool
-  {
-    if ($this->authProvider()->getUserType() == User::TYPE_ADMINISTRATOR) return true;
-
-    $administratorRoleIds = $this->permissionsManager()->administratorRoles;
-    $userRoleIds = $this->authProvider()->getUserRoles();
-    return count(array_intersect($administratorRoleIds, $userRoleIds)) > 0;
-  }
-
-  // External users (for example clients, if a client zone is added) are not users of the service.
-  public function isActiveUserExternal(): bool
-  {
-    return $this->authProvider()->getUserType() == User::TYPE_EXTERNAL;
-  }
-
-  // Legacy "administrator or manager": may see and change everything.
-  public function isActiveUserAdministratorOrManager(): bool
-  {
-    return $this->isActiveUserAdministrator() || $this->activeUserHasRole(self::MANAGER);
   }
 }

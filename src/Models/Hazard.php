@@ -10,7 +10,7 @@ use Hubleto\Framework\Exceptions\RecordSaveException;
  * An item of the hazard catalogue (both legacy apps call it "položka kategorizácie").
  * The four types are the same in both legacy apps, so they are a fixed list, not a table.
  */
-class Hazard extends \Hubleto\App\External\WaiBlue\OhsCore\Models\OhsModel
+class Hazard extends \Hubleto\Erp\Model
 {
   const TYPE_FACTOR = 1;
   const TYPE_SPECIAL_REGULATION = 2;
