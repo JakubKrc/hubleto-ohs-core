@@ -60,6 +60,55 @@ class Hazard extends \Hubleto\App\External\WaiBlue\OhsCore\Models\OhsModel
     return $submittedLevel;
   }
 
+  // Texts of a stored level 1-4 on a job position or an exam; for the yes/no hazard types level 1 means "yes".
+  public function getLevelTexts(): array
+  {
+    return [
+      1 => $this->translate('Category 1 / yes'),
+      2 => $this->translate('Category 2'),
+      3 => $this->translate('Category 3'),
+      4 => $this->translate('Category 4'),
+    ];
+  }
+
+  // SQL of a list column of a level table: "Category n" for work factors, "Yes" for the other hazard types.
+  public function getLevelTextSql(string $levelTable): string
+  {
+    $categoryCases = '';
+    $categoryTexts = [
+      1 => $this->translate('Category 1'),
+      2 => $this->translate('Category 2'),
+      3 => $this->translate('Category 3'),
+      4 => $this->translate('Category 4'),
+    ];
+    foreach ($categoryTexts as $category => $categoryText) {
+      $categoryCases .= ' when ' . $category . ' then ' . $this->quoteSqlText($categoryText);
+    }
+    $yesText = $this->quoteSqlText($this->translate('Yes'));
+
+    return 'select case when ohs_hazards.type = ' . self::TYPE_FACTOR
+      . ' then (case ' . $levelTable . '.level' . $categoryCases . ' end)'
+      . ' else ' . $yesText . ' end'
+      . ' from ohs_hazards where ohs_hazards.id = ' . $levelTable . '.id_hazard'
+    ;
+  }
+
+  private function quoteSqlText(string $text): string
+  {
+    return "'" . str_replace(["\\", "'"], ["\\\\", "''"], $text) . "'";
+  }
+
+  // A level row means the hazard is present: a work factor with category 1-4, the other types with "yes" (1).
+  public function refuseInvalidLevel(int $idHazard, int $level): void
+  {
+    $hazard = $this->record->where('id', $idHazard)->first();
+    if (!$hazard) return;
+
+    if (!self::isValidLevel((int) $hazard->type, $level)) {
+      throw new RecordSaveException($this->translate('A work factor needs a category 1 to 4, other hazards only "yes" (1).'));
+    }
+  }
+
   public function describeColumns(): array
   {
     $monthsUnit = $this->translate('months');

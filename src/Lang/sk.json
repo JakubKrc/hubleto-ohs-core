@@ -23,7 +23,14 @@
         "Exam interval, category 2": "Interval LPP, kategória 2",
         "Exam interval, category 3": "Interval LPP, kategória 3",
         "Exam interval, category 4": "Interval LPP, kategória 4",
-        "A hazard of this name already exists.": "Riziko s týmto názvom už existuje."
+        "A hazard of this name already exists.": "Riziko s týmto názvom už existuje.",
+        "Category 1 / yes": "Kategória 1 / áno",
+        "Category 1": "Kategória 1",
+        "Category 2": "Kategória 2",
+        "Category 3": "Kategória 3",
+        "Category 4": "Kategória 4",
+        "Yes": "Áno",
+        "A work factor needs a category 1 to 4, other hazards only \"yes\" (1).": "Faktor práce potrebuje kategóriu 1 až 4, ostatné riziká len „áno“ (1)."
     },
     "Models\\Clinic": {
         "Name": "Názov",
