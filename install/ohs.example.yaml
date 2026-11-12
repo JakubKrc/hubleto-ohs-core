@@ -1,0 +1,75 @@
+### Ohs (occupational health CRM): install config for "php hubleto init", Hubleto 2.
+### Copy to the root of a new Hubleto project as ohs.yaml, fill in the URL, DB and admin values, then:
+###   php hubleto prepare-composer ohs.yaml && composer update   (once: adds the Ohs packages)
+###   php hubleto init ohs.yaml   (DESTRUCTIVE: drops and recreates the database)
+### Re-init: delete ConfigEnv.php first (init refuses to run otherwise). Full steps: install/README.md.
+
+### Ohs packages, merged into the project's composer.json by "php hubleto prepare-composer".
+### Run it only once: a second run doubles the entries and breaks composer.json.
+### "no-api" makes composer clone with plain git and your git credentials, without GitHub API calls (no API rate limit).
+composer:
+  repositories:
+    wai-blue/hubleto-ohs-core: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-core', no-api: true }
+    wai-blue/hubleto-ohs-clients: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-clients', no-api: true }
+    wai-blue/hubleto-ohs-branches: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-branches', no-api: true }
+    wai-blue/hubleto-ohs-employees: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-employees', no-api: true }
+    wai-blue/hubleto-ohs-medical-exams: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-medical-exams', no-api: true }
+    wai-blue/hubleto-ohs-audits: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-audits', no-api: true }
+    wai-blue/hubleto-ohs-documents: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-documents', no-api: true }
+    wai-blue/hubleto-ohs-events: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-events', no-api: true }
+  require:
+    wai-blue/hubleto-ohs-core: dev-main
+    wai-blue/hubleto-ohs-clients: dev-main
+    wai-blue/hubleto-ohs-branches: dev-main
+    wai-blue/hubleto-ohs-employees: dev-main
+    wai-blue/hubleto-ohs-medical-exams: dev-main
+    wai-blue/hubleto-ohs-audits: dev-main
+    wai-blue/hubleto-ohs-documents: dev-main
+    wai-blue/hubleto-ohs-events: dev-main
+
+### Project location
+rewriteBase: /my-project/
+# URLs must be written as https://host/{{ rewriteBase }} (rewriteBase is inserted without slashes).
+projectUrl: http://localhost/{{ rewriteBase }}
+srcUrl: http://localhost/{{ rewriteBase }}/vendor/hubleto/erp
+assetsUrl: http://localhost/{{ rewriteBase }}/vendor/hubleto/assets
+
+### Database connection
+dbHost: localhost
+dbUser: hubleto
+dbPassword: CHANGE-ME
+dbName: hbl_ohs
+dbCodepage: utf8mb4
+
+### Initial account access
+accountFullName: Ohs
+adminName: Admin
+adminFamilyName: Ohs
+adminNick: admin
+adminEmail: admin@example.com
+adminPassword: CHANGE-ME
+language: sk
+
+# crm is always installed (Customers, Contacts, Calendar, Documents, Mail, Notifications, ...)
+packagesToInstall: crm,maintenance,help
+
+### Miscellaneous
+# true: FAKE demo data of Hubleto and of the Ohs apps (demo users: install/README.md)
+generateDemoData: false
+noPrompt: true
+
+### Apps to be installed on top of the packages. Order matters: each app needs the ones above it.
+appsToInstall:
+  # Needed: community Customers, Calendar and Tasks read the leads, deals and projects tables.
+  Hubleto\App\Community\Leads: []
+  Hubleto\App\Community\Deals: []
+  Hubleto\App\Community\Projects: []
+  # Ohs apps (composer packages wai-blue/hubleto-ohs-*).
+  Hubleto\App\External\WaiBlue\OhsCore: []
+  Hubleto\App\External\WaiBlue\OhsClients: []
+  Hubleto\App\External\WaiBlue\OhsBranches: []
+  Hubleto\App\External\WaiBlue\OhsEmployees: []
+  Hubleto\App\External\WaiBlue\OhsMedicalExams: []
+  Hubleto\App\External\WaiBlue\OhsAudits: []
+  Hubleto\App\External\WaiBlue\OhsDocuments: []
+  Hubleto\App\External\WaiBlue\OhsEvents: []

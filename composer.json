@@ -1,0 +1,11 @@
+{
+    "name": "wai-blue/hubleto-ohs-core",
+    "license": "GPL-3.0-only",
+    "description": "Shared code lists, roles and services of the Ohs apps for an occupational health service",
+    "autoload": {
+        "psr-4": {
+            "Hubleto\\App\\External\\WaiBlue\\OhsCore\\": "src"
+        }
+    },
+    "minimum-stability": "dev"
+}
