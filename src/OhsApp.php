@@ -26,15 +26,6 @@ abstract class OhsApp extends \Hubleto\Erp\App
   }
 
   /**
-   * Hubleto builds external apps into js/external/<Vendor>/<App>.js but does not load them yet.
-   */
-  public function getJavascriptAssetsUrls(): array
-  {
-    if (!file_exists($this->srcFolder . '/Loader.tsx')) return [];
-    return [$this->env()->assetsCompiledUrl . '/js/external/WaiBlue/' . $this->shortName . '.js'];
-  }
-
-  /**
    * Hubleto calls generateDemoData() of the apps in alphabetical order, but the Ohs demo data needs
    * the order of the app dependencies, so the first call generates the demo data of all Ohs apps.
    */
