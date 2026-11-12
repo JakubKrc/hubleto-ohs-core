@@ -1,2 +1,2 @@
 # hubleto-ohs-core
-Core OHS CRM app for Hubleto
+Hubleto OHS CRM app - Core
