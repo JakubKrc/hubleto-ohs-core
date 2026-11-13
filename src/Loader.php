@@ -4,29 +4,15 @@ namespace Hubleto\App\External\WaiBlue\OhsCore;
 
 class Loader extends OhsApp
 {
-  // Apps are constructed before any app is initialised, so overrides registered here apply to all apps.
-  public function __construct()
-  {
-    parent::__construct();
-    HubletoOverrides\NoRecordUpdateNotifications::register();
-    HubletoOverrides\HomePage::register();
-    HubletoOverrides\Search::register();
-  }
-
   public function init(): void
   {
     parent::init();
-
-    header_register_callback([Services\ResponseHeaders::class, 'keepEachCookieOnce']);
-    HubletoOverrides\Dashboard::register();
 
     $this->router()->get([
       '/^ohs\/core\/?$/' => Controllers\Home::class,
       '/^ohs\/core\/settings\/?$/' => Controllers\Settings::class,
       '/^ohs\/core\/api\/user-lookup\/?$/' => Controllers\Api\UserLookup::class,
     ]);
-    // Replaces Hubleto's lookup endpoint (same route), see HubletoOverrides/RecordLookup.
-    $this->router()->get(['/^api\/record\/lookup\/?$/' => HubletoOverrides\RecordLookup::class]);
     $this->router()->crud('ohs/core/cars', Controllers\Cars::class);
 
     // Users who get a role also get the apps and the home dashboard panels of that role.

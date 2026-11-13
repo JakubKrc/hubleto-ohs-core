@@ -33,15 +33,6 @@
         "Cars": "Autá",
         "The code lists shared by all Ohs apps.": "Číselníky spoločné pre všetky aplikácie Ohs."
     },
-    "HubletoOverrides\\Search": {
-        "Help: how to search": "Pomoc: ako vyhľadávať"
-    },
-    "Controllers\\HomePage": {
-        "Good morning": "Dobré ráno",
-        "Good day": "Dobrý deň",
-        "Good evening": "Dobrý večer",
-        "My profile": "Môj profil"
-    },
     "Services\\UploadedFile": {
         "The file was not found.": "Súbor sa nenašiel."
     }
