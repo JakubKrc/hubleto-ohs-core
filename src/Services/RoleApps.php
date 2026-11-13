@@ -30,6 +30,8 @@ class RoleApps extends \Hubleto\Erp\Core
     'Hubleto\\App\\External\\WaiBlue\\OhsAudits',
     'Hubleto\\App\\External\\WaiBlue\\OhsDocuments',
     'Hubleto\\App\\External\\WaiBlue\\OhsEvents',
+    // Vehicles and their bookings (wai-blue/hubleto-vehicle-log), installed next to the Ohs apps.
+    'Hubleto\\App\\External\\WaiBlue\\VehicleLog',
   ];
 
   /**
