@@ -10,8 +10,9 @@
 composer:
   repositories:
     wai-blue/hubleto-ohs-core: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-core', no-api: true }
-    wai-blue/hubleto-ohs-hazards: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-hazards', no-api: true }
-    wai-blue/hubleto-ohs-clinics: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-clinics', no-api: true }
+    # Temporary: from public personal repos until wai-blue/hubleto-ohs-hazards and -clinics exist (same package names).
+    wai-blue/hubleto-ohs-hazards: { type: vcs, url: 'https://github.com/JakubKrc/hubleto-ohs-hazards', no-api: true }
+    wai-blue/hubleto-ohs-clinics: { type: vcs, url: 'https://github.com/JakubKrc/hubleto-ohs-clinics', no-api: true }
     wai-blue/hubleto-ohs-clients: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-clients', no-api: true }
     wai-blue/hubleto-ohs-branches: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-branches', no-api: true }
     wai-blue/hubleto-ohs-employees: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-employees', no-api: true }

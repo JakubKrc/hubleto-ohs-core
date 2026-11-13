@@ -1,6 +1,8 @@
 # Installing the Ohs CRM (Hubleto 2)
 
 Needs PHP 8.2 or newer, composer, node and npm, and a MySQL or MariaDB database. The Ohs repositories are private: composer needs a GitHub account with access to them (SSH key or token).
+Until `wai-blue/hubleto-ohs-hazards` and `wai-blue/hubleto-ohs-clinics` exist, these two apps come from the public repos
+`JakubKrc/hubleto-ohs-hazards` and `JakubKrc/hubleto-ohs-clinics` (the yaml already points there; use them in the loops below too).
 
 Everything Ohs needs is in one file, `ohs.example.yaml` in this folder: the Ohs packages for composer,
 and the apps and settings for `php hubleto init`.
