@@ -3,13 +3,12 @@
 namespace Hubleto\App\External\WaiBlue\OhsCore\Services;
 
 /**
- * Sends an uploaded file to the browser. The upload folder itself is not public (it will hold medical scans),
- * so controllers check the user's access first and then call send().
+ * Sends a file of the upload folder as a download, and deletes the files of deleted records.
  */
-class ProtectedFile extends \Hubleto\Erp\Core
+class UploadedFile extends \Hubleto\Erp\Core
 {
   public string $translationContext = 'hubleto-app-external-waiblue-ohscore-loader';
-  public string $translationContextInner = 'Services\\ProtectedFile';
+  public string $translationContextInner = 'Services\\UploadedFile';
 
   /**
    * Sets download headers and returns the file content, or a message when the file is missing.
@@ -57,7 +56,7 @@ class ProtectedFile extends \Hubleto\Erp\Core
     return $isFileInUploadFolder ? $filePath : '';
   }
 
-  // Plain-text answer when the user may not download the file or it does not exist.
+  // Plain-text answer when the file does not exist.
   public function refuse(int $httpStatus, string $message): string
   {
     http_response_code($httpStatus);

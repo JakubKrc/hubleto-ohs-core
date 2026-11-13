@@ -27,9 +27,6 @@
     "Components\\FormCar": {
         "Car": "Auto"
     },
-    "Services\\ProtectedFile": {
-        "The file was not found.": "Súbor sa nenašiel."
-    },
     "Controllers\\Settings": {
         "Code lists": "Číselníky",
         "Settings": "Nastavenia",
@@ -45,7 +42,7 @@
         "Good evening": "Dobrý večer",
         "My profile": "Môj profil"
     },
-    "Components\\ProtectedFileInput": {
-        "Upload file": "Nahrať súbor"
+    "Services\\UploadedFile": {
+        "The file was not found.": "Súbor sa nenašiel."
     }
 }

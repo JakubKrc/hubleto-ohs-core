@@ -17,7 +17,7 @@ class HomeDashboard extends \Hubleto\Erp\Core
     'ohs/audits/boards/upcoming-audits' => 'Najbližšie audity (max 1 mesiac)',
   ];
 
-  // For installations with existing users (Cli/setup-home-dashboards.php) and for the demo data.
+  // For the demo data.
   public function ensureForAllUsers(): void
   {
     $userIds = $this->getModel(User::class)->record->where('is_active', 1)->pluck('id');
