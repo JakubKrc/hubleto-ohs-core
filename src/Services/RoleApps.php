@@ -21,6 +21,8 @@ class RoleApps extends \Hubleto\Erp\Core
     'Hubleto\\App\\Community\\Calendar',
     'Hubleto\\App\\Community\\Workflow',
     'Hubleto\\App\\External\\WaiBlue\\OhsCore',
+    'Hubleto\\App\\External\\WaiBlue\\OhsHazards',
+    'Hubleto\\App\\External\\WaiBlue\\OhsClinics',
     'Hubleto\\App\\External\\WaiBlue\\OhsClients',
     'Hubleto\\App\\External\\WaiBlue\\OhsBranches',
     'Hubleto\\App\\External\\WaiBlue\\OhsEmployees',

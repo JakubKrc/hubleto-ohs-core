@@ -10,6 +10,8 @@
 composer:
   repositories:
     wai-blue/hubleto-ohs-core: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-core', no-api: true }
+    wai-blue/hubleto-ohs-hazards: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-hazards', no-api: true }
+    wai-blue/hubleto-ohs-clinics: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-clinics', no-api: true }
     wai-blue/hubleto-ohs-clients: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-clients', no-api: true }
     wai-blue/hubleto-ohs-branches: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-branches', no-api: true }
     wai-blue/hubleto-ohs-employees: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-employees', no-api: true }
@@ -19,6 +21,8 @@ composer:
     wai-blue/hubleto-ohs-events: { type: vcs, url: 'https://github.com/wai-blue/hubleto-ohs-events', no-api: true }
   require:
     wai-blue/hubleto-ohs-core: dev-main
+    wai-blue/hubleto-ohs-hazards: dev-main
+    wai-blue/hubleto-ohs-clinics: dev-main
     wai-blue/hubleto-ohs-clients: dev-main
     wai-blue/hubleto-ohs-branches: dev-main
     wai-blue/hubleto-ohs-employees: dev-main
@@ -66,6 +70,8 @@ appsToInstall:
   Hubleto\App\Community\Projects: []
   # Ohs apps (composer packages wai-blue/hubleto-ohs-*).
   Hubleto\App\External\WaiBlue\OhsCore: []
+  Hubleto\App\External\WaiBlue\OhsHazards: []
+  Hubleto\App\External\WaiBlue\OhsClinics: []
   Hubleto\App\External\WaiBlue\OhsClients: []
   Hubleto\App\External\WaiBlue\OhsBranches: []
   Hubleto\App\External\WaiBlue\OhsEmployees: []

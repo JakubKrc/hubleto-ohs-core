@@ -1,48 +1,9 @@
 {
     "manifest": {
         "Code lists": "Číselníky",
-        "Shared code lists for occupational health (hazards, clinics, cars) and shared services of the Ohs apps.": "Spoločné číselníky pracovnej zdravotnej služby (riziká, ambulancie, autá) a spoločné služby aplikácií Ohs.",
-        "Hazards (categorisation items)": "Riziká (položky kategorizácie)",
-        "Hazards": "Riziká",
-        "Clinics": "Ambulancie",
         "Cars": "Autá",
-        "Demo clinic": "Ukážková ambulancia",
-        "Settings": "Nastavenia"
-    },
-    "Models\\Hazard": {
-        "Name": "Názov",
-        "Add hazard": "Pridať riziko",
-        "Work factor": "Faktor práce",
-        "Special regulation": "Osobitný predpis",
-        "Professional activity": "Odborná činnosť",
-        "Examination": "Vyšetrenie",
-        "months": "mesiacov",
-        "Type": "Typ",
-        "Exam interval without category": "Interval LPP bez kategórie",
-        "Exam interval, category 1": "Interval LPP, kategória 1",
-        "Exam interval, category 2": "Interval LPP, kategória 2",
-        "Exam interval, category 3": "Interval LPP, kategória 3",
-        "Exam interval, category 4": "Interval LPP, kategória 4",
-        "A hazard of this name already exists.": "Riziko s týmto názvom už existuje.",
-        "Category 1 / yes": "Kategória 1 / áno",
-        "Category 1": "Kategória 1",
-        "Category 2": "Kategória 2",
-        "Category 3": "Kategória 3",
-        "Category 4": "Kategória 4",
-        "Yes": "Áno",
-        "A work factor needs a category 1 to 4, other hazards only \"yes\" (1).": "Faktor práce potrebuje kategóriu 1 až 4, ostatné riziká len „áno“ (1)."
-    },
-    "Models\\Clinic": {
-        "Name": "Názov",
-        "Street": "Ulica",
-        "City": "Mesto",
-        "Postal code": "PSČ",
-        "Contact person": "Kontaktná osoba",
-        "Phone": "Telefón",
-        "E-mail": "E-mail",
-        "Note": "Poznámka",
-        "Add clinic": "Pridať ambulanciu",
-        "Type / specialty": "Typ / odbornosť"
+        "Settings": "Nastavenia",
+        "Roles, shared services and the cars code list of the Ohs apps.": "Roly, spoločné služby a číselník áut aplikácií Ohs."
     },
     "Models\\Car": {
         "Name": "Názov",
@@ -51,8 +12,6 @@
     },
     "Controllers\\Home": {
         "Code lists": "Číselníky",
-        "Hazards": "Riziká",
-        "Clinics": "Ambulancie",
         "Cars": "Autá"
     },
     "Services\\Roles": {
@@ -65,36 +24,17 @@
         "Medical staff": "Zdravotný personál",
         "Clinic staff who perform medical exams.": "Personál ambulancie, ktorý vykonáva lekárske prehliadky."
     },
-    "Components\\FormHazard": {
-        "Hazard": "Riziko",
-        "Exam intervals": "Intervaly LPP"
-    },
-    "Components\\FormClinic": {
-        "Clinic": "Ambulancia",
-        "Medical staff": "Zdravotný personál",
-        "Save the clinic first.": "Najprv uložte ambulanciu."
-    },
     "Components\\FormCar": {
         "Car": "Auto"
     },
     "Services\\ProtectedFile": {
         "The file was not found.": "Súbor sa nenašiel."
     },
-    "Models\\ClinicHasMedicalStaff": {
-        "Clinic": "Ambulancia",
-        "Medical staff user": "Používateľ (zdravotný personál)",
-        "Add medical staff user": "Pridať zdravotný personál"
-    },
-    "Components\\FormClinicHasMedicalStaff": {
-        "Medical staff of the clinic": "Zdravotný personál ambulancie"
-    },
     "Controllers\\Settings": {
         "Code lists": "Číselníky",
         "Settings": "Nastavenia",
-        "Hazards and exam intervals": "Riziká a intervaly LPP",
-        "Clinics and their medical staff": "Ambulancie a ich zdravotný personál",
         "Cars": "Autá",
-        "The code lists shared by all Ohs apps. Exam intervals of the hazards set the next exam date.": "Číselníky spoločné pre všetky aplikácie Ohs. Intervaly LPP pri rizikách určujú dátum ďalšej prehliadky."
+        "The code lists shared by all Ohs apps.": "Číselníky spoločné pre všetky aplikácie Ohs."
     },
     "HubletoOverrides\\Search": {
         "Help: how to search": "Pomoc: ako vyhľadávať"

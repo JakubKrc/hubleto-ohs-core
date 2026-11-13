@@ -18,7 +18,7 @@ and the apps and settings for `php hubleto init`.
 3. Add the Ohs packages and install:
 
    ```bash
-   php hubleto prepare-composer ohs.yaml   # adds the 8 Ohs packages to composer.json
+   php hubleto prepare-composer ohs.yaml   # adds the 10 Ohs packages to composer.json
    composer update
    php hubleto init ohs.yaml               # drops and recreates the database named in the yaml
    ```
@@ -58,7 +58,7 @@ so changes show at once. Before step 3, change each repository in the yaml's `co
 
 ```bash
 mkdir -p /var/www/html/ohs-apps && cd /var/www/html/ohs-apps
-for app in core clients branches employees medical-exams audits documents events; do
+for app in core hazards clinics clients branches employees medical-exams audits documents events; do
   git clone git@github.com:wai-blue/hubleto-ohs-$app.git
 done
 ```
@@ -67,7 +67,7 @@ done
 composer:
   repositories:
     wai-blue/hubleto-ohs-core: { type: path, url: /var/www/html/ohs-apps/hubleto-ohs-core }
-    # ... the same for the other 7
+    # ... the same for the other 9
 ```
 
 Commit and push in the cloned folders. Files copied into `src/apps` do not work: that folder is for custom apps,
@@ -78,11 +78,12 @@ and Hubleto finds external apps only as composer packages.
 The same as step 3, by hand:
 
 ```bash
-for app in core clients branches employees medical-exams audits documents events; do
+for app in core hazards clinics clients branches employees medical-exams audits documents events; do
   composer config repositories.wai-blue/hubleto-ohs-$app \
     "{\"type\": \"vcs\", \"url\": \"https://github.com/wai-blue/hubleto-ohs-$app\", \"no-api\": true}"
 done
-composer require wai-blue/hubleto-ohs-core:dev-main wai-blue/hubleto-ohs-clients:dev-main \
+composer require wai-blue/hubleto-ohs-core:dev-main wai-blue/hubleto-ohs-hazards:dev-main \
+  wai-blue/hubleto-ohs-clinics:dev-main wai-blue/hubleto-ohs-clients:dev-main \
   wai-blue/hubleto-ohs-branches:dev-main wai-blue/hubleto-ohs-employees:dev-main \
   wai-blue/hubleto-ohs-medical-exams:dev-main wai-blue/hubleto-ohs-audits:dev-main \
   wai-blue/hubleto-ohs-documents:dev-main wai-blue/hubleto-ohs-events:dev-main

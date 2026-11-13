@@ -25,6 +25,8 @@ class DemoData extends \Hubleto\Erp\Core
     // Order matters: later apps use records created by earlier ones.
     $ohsAppNamespaces = [
       'Hubleto\App\External\WaiBlue\OhsCore',
+      'Hubleto\App\External\WaiBlue\OhsHazards',
+      'Hubleto\App\External\WaiBlue\OhsClinics',
       'Hubleto\App\External\WaiBlue\OhsClients',
       'Hubleto\App\External\WaiBlue\OhsBranches',
       'Hubleto\App\External\WaiBlue\OhsEmployees',

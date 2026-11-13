@@ -4,10 +4,10 @@ External Hubleto app with the shared core of the Ohs apps for an occupational he
 
 ## Brief overview
 
-Keeps the code lists of an occupational health service: the hazard catalogue with exam intervals per category, clinics
-with their medical staff, and cars. Defines the five roles (administrator, manager, hygienist, nurse, medical staff) and
-the apps each role gets. Also has the shared services of the other Ohs apps: translations, protected files, the home
-page and dashboard, demo data and the install config of the whole Ohs set.
+Keeps the cars code list of an occupational health service (the hazard catalogue and the clinics are the apps Ohs Hazards
+and Ohs Clinics). Defines the five roles (administrator, manager, hygienist, nurse, medical staff) and the apps each role
+gets. Also has the shared services of the other Ohs apps: translations, protected files, the home page and dashboard,
+demo data and the install config of the whole Ohs set.
 
 Namespace `Hubleto\App\External\WaiBlue\OhsCore`, URL slug `ohs/core`. Requires: Auth, Settings, Customers.
 
@@ -23,8 +23,6 @@ To install the whole Ohs set into a new Hubleto project, follow `install/README.
 
 | Area | Where |
 |---|---|
-| Hazard catalogue | `ohs/core/hazards` - `Models/Hazard.php`, `Components/FC/TableHazards.tsx`, `FormHazard.tsx` |
-| Clinics and their medical staff | `ohs/core/clinics`, `ohs/core/clinic-has-medical-staff` |
 | Cars | `ohs/core/cars` |
 | Roles and the apps of each role | `Services/Roles.php`, `Services/RoleApps.php` |
 | Home page, dashboard and search | `HubletoOverrides/` |
